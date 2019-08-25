@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1566696176 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
+	<iostream>
+	<iostream>
+	<string>
+	<stdio.h>
+	<stdlib.h>
+
