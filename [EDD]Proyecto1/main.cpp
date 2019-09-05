@@ -1,18 +1,12 @@
 #include <iostream>
-#include <iostream>
 #include <string>
 #include <stdio.h> /*uso para printf y scanf cuando sera necesario */
 #include <stdlib.h>
-using namespace std;
-void insertar_Imagen()
-{
-    string opcion1;
-        system("cls");
-        cout << "---------- MENU PHOTGEN+++ ----------" << endl;
-        cout << "Ingrese el nombre del archivo .csv" << endl;
-        cin >> opcion1;
-}
+#include <fstream>
 
+using namespace std;
+
+void insertar_Imagen();
 
 int main()
 {
@@ -79,4 +73,16 @@ int main()
         return 0;
 }
 
+void insertar_Imagen()
+{
+    string opcion1;
+        system("cls");
+        cout << "---------- MENU PHOTGEN+++ ----------" << endl;
+        cout << "Ingrese el nombre del archivo .csv" << endl;
+        cin >> opcion1;
+        try{
+
+        }catch(string archivo){
+        }
+}
 
