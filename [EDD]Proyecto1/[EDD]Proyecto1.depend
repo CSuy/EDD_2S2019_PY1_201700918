@@ -1,8 +1,28 @@
 # depslib dependency file v1.0
-1566696176 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
-	<iostream>
+1567904172 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
 	<iostream>
 	<string>
 	<stdio.h>
 	<stdlib.h>
+	<fstream>
+
+1567639824 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\dato.cpp
+	"dato.h"
+
+1567639678 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\dato.h
+	<string>
+
+1567902809 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.cpp
+	"lista_matriz.h"
+	<iostream>
+	<string>
+
+1567901425 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.h
+	"nodo.h"
+
+1567889028 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo.h
+	<string>
+
+1567890678 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo.cpp
+	"nodo.h"
 

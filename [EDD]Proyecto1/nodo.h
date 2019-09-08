@@ -6,10 +6,14 @@ class Nodo
 {
     public:
         Nodo *siguiente;
-        Nodo *atras;
+        Nodo *anterior;
         Nodo *arriba;
         Nodo *abajo;
-        Nodo();
+        Nodo *adelante;
+        Nodo *atras;
+        std::string Color;
+        int posX, posY;
+        Nodo(int posx, int posy, std::string color);
         virtual ~Nodo();
 
     protected:

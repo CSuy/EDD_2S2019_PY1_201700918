@@ -38,6 +38,8 @@
 		</Compiler>
 		<Unit filename="dato.cpp" />
 		<Unit filename="dato.h" />
+		<Unit filename="lista_matriz.cpp" />
+		<Unit filename="lista_matriz.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="nodo.cpp" />
 		<Unit filename="nodo.h" />
