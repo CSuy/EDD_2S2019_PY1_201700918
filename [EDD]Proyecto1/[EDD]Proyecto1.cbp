@@ -36,6 +36,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="arbol_binario.cpp" />
+		<Unit filename="arbol_binario.h" />
 		<Unit filename="dato.cpp" />
 		<Unit filename="dato.h" />
 		<Unit filename="lista_matriz.cpp" />
@@ -43,6 +45,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="nodo.cpp" />
 		<Unit filename="nodo.h" />
+		<Unit filename="nodo_arbol.cpp" />
+		<Unit filename="nodo_arbol.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

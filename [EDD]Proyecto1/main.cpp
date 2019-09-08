@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <string.h>
 #include <stdio.h> /*uso para printf y scanf cuando sera necesario */
 #include <stdlib.h>
 #include <fstream>
@@ -7,14 +8,17 @@
 using namespace std;
 
 void insertar_Imagen();
-
 int main()
 {
+    /*char cadena1[]="arco";
+    char cadena2[]="avion";
+    int x1= strcmp(cadena1,cadena2); */
     bool menu=false;
     int opcion1;
     do
     {
         system("cls");
+        //printf("el valor numerico: %d \n",x1);
         cout << "---------- MENU PHOTGEN+++ ----------" << endl;
         cout << "1. INSERTAR IMAGEN" << endl;
         cout << "2. SELECCIONAR IMAGEN" << endl;
@@ -83,7 +87,6 @@ void insertar_Imagen()
         try{
 
         }catch(string archivo){
-            
+
         }
 }
-
