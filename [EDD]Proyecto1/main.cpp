@@ -4,10 +4,15 @@
 #include <stdio.h> /*uso para printf y scanf cuando sera necesario */
 #include <stdlib.h>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
 void insertar_Imagen();
+void comparar();
+void ingresar(std::string archivo);
+
+
 int main()
 {
     /*char cadena1[]="arco";
@@ -18,7 +23,7 @@ int main()
     do
     {
         system("cls");
-        //printf("el valor numerico: %d \n",x1);
+        comparar();
         cout << "---------- MENU PHOTGEN+++ ----------" << endl;
         cout << "1. INSERTAR IMAGEN" << endl;
         cout << "2. SELECCIONAR IMAGEN" << endl;
@@ -80,8 +85,11 @@ int main()
 void insertar_Imagen()
 {
     string opcion1;
+    string nombre;
         system("cls");
         cout << "---------- MENU PHOTGEN+++ ----------" << endl;
+        cout << "Ingrese un nombre para la imagen" << endl;
+        cin >> nombre;
         cout << "Ingrese el nombre del archivo .csv" << endl;
         cin >> opcion1;
         try{
@@ -89,4 +97,29 @@ void insertar_Imagen()
         }catch(string archivo){
 
         }
+}
+
+void comparar()
+{
+    std::string cadena1="hola";
+    std::string cadena2="holi";
+    cout << cadena1.compare(cadena2) << endl; //-1
+    cout << cadena2.compare(cadena1) << endl; //1
+    cout << "\" hola \"" << endl;
+
+}
+
+void ingresar(std::string archivo)
+{
+    ifstream lectura;
+    char hola[archivo.size()+1];
+    strcpy(hola,archivo.c_str());
+    try{
+        lectura.open(hola,ios::in);
+        for(std::string filas; std::getline(lectura, filas); ){
+            std::stringstream registro(filas);
+        }
+    }catch(exception){
+        cout << "Se produjo un error al leer archivos" << endl;
+    }
 }

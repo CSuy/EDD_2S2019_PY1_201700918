@@ -1,11 +1,22 @@
 # depslib dependency file v1.0
-1567918071 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
+1568136907 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
+	"arbol_binario.h"
+	<cstring>
 	<iostream>
-	<string>
-	<string.h>
-	<stdio.h>
-	<stdlib.h>
 	<fstream>
+	<sstream>
+	<stdlib.h>
+
+1568136784 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.h
+	"nodo_arbol.h"
+	<iostream>
+	<cstring>
+	<fstream>
+	<sstream>
+	<stdlib.h>
+
+1567957105 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_arbol.h
+	<string>
 
 1567639824 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\dato.cpp
 	"dato.h"
@@ -27,17 +38,7 @@
 1567890678 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo.cpp
 	"nodo.h"
 
-1567909905 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_arbol.cpp
+1567957174 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_arbol.cpp
 	"nodo_arbol.h"
 	<string>
-
-1567909905 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_arbol.h
-	<string>
-
-1567917067 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
-	"arbol_binario.h"
-	<cstring>
-
-1567912167 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.h
-	"nodo_arbol.h"
 

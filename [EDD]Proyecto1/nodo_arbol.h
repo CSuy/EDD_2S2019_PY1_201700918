@@ -7,9 +7,10 @@ class Nodo_Arbol
 {
     public:
         std::string Nombre_imagen;
+        std::string Caracteristicas;
         Nodo_Arbol *izquierdo;
         Nodo_Arbol *derecho;
-        Nodo_Arbol(std::string imagen);
+        Nodo_Arbol(std::string imagen, std::string caracteristicas);
         virtual ~Nodo_Arbol();
 
     protected:
