@@ -5,13 +5,18 @@
 #include <stdlib.h>
 #include <fstream>
 #include <sstream>
+#include "lista_matriz.h"
+#include "arbol_binario.h"
 
 using namespace std;
 
 void insertar_Imagen();
 void comparar();
-void ingresar(std::string archivo);
-
+void ingresar(std::string archivo, std::string nombre);
+void otros_csv(std::string other_file, std::string nombre);
+void capas(std::string nombre, int id);
+std::string imagen_en_proceso;
+Arbol_Binario *arbol = new Arbol_Binario();
 
 int main()
 {
@@ -85,15 +90,16 @@ int main()
 void insertar_Imagen()
 {
     string opcion1;
+    
     string nombre;
         system("cls");
         cout << "---------- MENU PHOTGEN+++ ----------" << endl;
         cout << "Ingrese un nombre para la imagen" << endl;
         cin >> nombre;
-        cout << "Ingrese el nombre del archivo .csv" << endl;
+        cout << "Ingrese el nombre del archivo .csv a utilizar" << endl;
         cin >> opcion1;
         try{
-
+            ingresar(opcion1, nombre);
         }catch(string archivo){
 
         }
@@ -106,20 +112,61 @@ void comparar()
     cout << cadena1.compare(cadena2) << endl; //-1
     cout << cadena2.compare(cadena1) << endl; //1
     cout << "\" hola \"" << endl;
+    std::string prueba="hola";
+    try{
+        int a = std::stoi(prueba);
+        if(a>=0){
+            cout << "si se pudo" << endl;
+        }else{
+           cout << "no se pudo" << endl;
+        }
+    }catch(exception){
+        cout << "no se pudo" << endl;
+    }
 
 }
 
-void ingresar(std::string archivo)
+void ingresar(std::string archivo, std::string nombre)
 {
-    ifstream lectura;
-    char hola[archivo.size()+1];
-    strcpy(hola,archivo.c_str());
     try{
-        lectura.open(hola,ios::in);
-        for(std::string filas; std::getline(lectura, filas); ){
-            std::stringstream registro(filas);
+        ifstream lectura;
+        lectura.open(archivo, ios::in);
+        std::string layer;
+        std::string file;
+        std::string capas="";
+        while (lectura.good())
+        {
+            getline(lectura, layer, ',');
+            getline(lectura, file, '\n');
+            try{
+                int numero=std::stoi(layer);
+                if(numero==0){
+                    
+                }else{
+                    capas+=layer;
+                    capas+=",";
+                    capas+=file;
+                    capas+="\n";
+                }
+            }catch(exception){
+
+            }
         }
+        
     }catch(exception){
         cout << "Se produjo un error al leer archivos" << endl;
     }
+}
+
+void otros_csv(std::string other_file, std::string nombre)
+{
+
+}
+
+void capas(std::string nombre, int id)
+{
+    
+
+    /*Lista_Matriz nuevo;
+    nuevo.crear_raiz(nombre);*/
 }

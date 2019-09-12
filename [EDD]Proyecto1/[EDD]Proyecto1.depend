@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1568136907 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
+1568250229 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
 	"arbol_binario.h"
 	<cstring>
 	<iostream>
@@ -7,16 +7,18 @@
 	<sstream>
 	<stdlib.h>
 
-1568136784 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.h
+1568250229 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.h
 	"nodo_arbol.h"
+	"nodo.h"
 	<iostream>
 	<cstring>
 	<fstream>
 	<sstream>
 	<stdlib.h>
 
-1567957105 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_arbol.h
+1568250229 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_arbol.h
 	<string>
+	"nodo.h"
 
 1567639824 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\dato.cpp
 	"dato.h"
@@ -24,12 +26,12 @@
 1567639678 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\dato.h
 	<string>
 
-1567902809 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.cpp
+1568242945 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.cpp
 	"lista_matriz.h"
 	<iostream>
 	<string>
 
-1567901425 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.h
+1568242459 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.h
 	"nodo.h"
 
 1567889028 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo.h
@@ -41,4 +43,13 @@
 1567957174 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_arbol.cpp
 	"nodo_arbol.h"
 	<string>
+
+1568232629 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
+	<iostream>
+	<string>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<fstream>
+	<sstream>
 

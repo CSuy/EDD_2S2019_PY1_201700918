@@ -1,6 +1,7 @@
 #ifndef ARBOL_BINARIO_H
 #define ARBOL_BINARIO_H
 #include "nodo_arbol.h"
+#include "nodo.h"
 #include <iostream>
 #include <cstring>
 #include <fstream>
@@ -12,7 +13,7 @@ using namespace std;
 class Arbol_Binario
 {
     public:
-        void insertar(std::string nombre_img, std::string caracteristicas);
+        void insertar(std::string nombre_img, std::string caracteristicas, Nodo *matrix);
         void Grafica_inorden();
         void Grafica_preorden();
         void Grafica_posorden();
@@ -25,7 +26,7 @@ class Arbol_Binario
 
     private:
         Nodo_Arbol *Raiz;
-        Nodo_Arbol *insertar(Nodo_Arbol *raiz, std::string nombre_img, std::string caracteristicas);
+        Nodo_Arbol *insertar(Nodo_Arbol *raiz, std::string nombre_img, std::string caracteristicas, Nodo *matrix);
         std::string inorden(Nodo_Arbol *raiz);
         std::string preorden(Nodo_Arbol *raiz);
         std::string posorden(Nodo_Arbol *raiz);

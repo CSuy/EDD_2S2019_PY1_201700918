@@ -19,23 +19,23 @@ Arbol_Binario::Arbol_Binario()
     this->id=1;
 }
 
-Nodo_Arbol* Arbol_Binario::insertar(Nodo_Arbol *raiz, std::string nombre, std::string caracteristicas)
+Nodo_Arbol* Arbol_Binario::insertar(Nodo_Arbol *raiz, std::string nombre, std::string caracteristicas, Nodo *matrix)
 {
     std::string nombre1=nombre;
     std::string nombre2=raiz->Nombre_imagen;
     if (raiz==0){
-        raiz=new Nodo_Arbol(nombre,caracteristicas);
+        raiz=new Nodo_Arbol(nombre,caracteristicas,matrix);
     }else if (nombre1.compare(nombre2)>0){
-        raiz->derecho=insertar(raiz->derecho,nombre,caracteristicas);
+        raiz->derecho=insertar(raiz->derecho,nombre,caracteristicas,matrix);
     }else if (nombre1.compare(nombre2)<=0){
-        raiz->izquierdo=insertar(raiz->izquierdo,nombre,caracteristicas);
+        raiz->izquierdo=insertar(raiz->izquierdo,nombre,caracteristicas,matrix);
     }
     return raiz;
 }
 
-void Arbol_Binario::insertar(std::string nombre, std::string caracteristicas)
+void Arbol_Binario::insertar(std::string nombre, std::string caracteristicas, Nodo *matrix)
 {
-    insertar(this->Raiz,nombre,caracteristicas);
+    insertar(this->Raiz,nombre,caracteristicas,matrix);
 }
 
 std::string Arbol_Binario::inorden(Nodo_Arbol *raiz)

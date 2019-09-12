@@ -1,6 +1,7 @@
 #ifndef NODO_ARBOL_H
 #define NODO_ARBOL_H
 #include <string>
+#include "nodo.h"
 
 
 class Nodo_Arbol
@@ -10,7 +11,8 @@ class Nodo_Arbol
         std::string Caracteristicas;
         Nodo_Arbol *izquierdo;
         Nodo_Arbol *derecho;
-        Nodo_Arbol(std::string imagen, std::string caracteristicas);
+        Nodo *matriz;
+        Nodo_Arbol(std::string imagen, std::string caracteristicas, Nodo *matrix);
         virtual ~Nodo_Arbol();
 
     protected:

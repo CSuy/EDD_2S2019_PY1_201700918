@@ -6,7 +6,7 @@ using namespace std;
 
 Lista_Matriz::Lista_Matriz()
 {
-    this->cabeza=new Nodo(-1,-1,"Matriz");
+    this->cabeza=0;
 }
 /** metodo que va a devolver la cabecera de la fila**/
 Nodo* Lista_Matriz::buscarF(int y)
@@ -115,6 +115,22 @@ void Lista_Matriz::insertar_elemento(int x, int y, std::string color){
     }
     else{
         cout << "Se podrujo un error al insertar el nuevo nodo" << endl;
+    }
+}
+
+void Lista_Matriz::crear_raiz(std::string capa)
+{
+    Nodo *nuevo_nodo = new Nodo(-1,-1,capa);
+    if(this->cabeza==0){
+        this->cabeza=nuevo_nodo;
+    }else{
+        Nodo *aux=this->cabeza;
+        while (aux->adelante!=0)
+        {
+            aux=aux->adelante;
+        }
+        aux->adelante=nuevo_nodo;
+        nuevo_nodo->atras=aux;
     }
 }
 
