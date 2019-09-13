@@ -37,22 +37,64 @@ Nodo* Lista_Matriz::buscarC(int x)
 Nodo* Lista_Matriz::insertar_columna(Nodo *nuevo, Nodo *cabeza_columna)
 {
     Nodo *temp=cabeza_columna;
-    while(temp->siguiente!=0){
-        temp=temp->siguiente;
+    bool piv=false;
+    while(true){
+        //temp=temp->siguiente;
+        if(temp->posX==nuevo->posX){
+            temp->posY=nuevo->posY;
+            temp->Color=nuevo->Color;
+            return temp;
+        }else if(temp->posX>nuevo->posX){
+            piv=true;
+            break;
+        }
+        if(temp->siguiente){
+            temp=temp->siguiente;
+        }else{
+            break;
+        }
     }
-    temp->siguiente=nuevo;
-    nuevo->anterior=temp;
+    if(piv){
+        nuevo->siguiente=temp;
+        temp->anterior->siguiente=nuevo;
+        nuevo->anterior=temp->anterior;
+        temp->anterior=nuevo;
+    }else{
+        temp->siguiente=nuevo;
+        nuevo->anterior=temp;
+    }
     delete temp;
     return nuevo;
 }
 Nodo* Lista_Matriz::insertar_fila(Nodo *nuevo, Nodo *cabeza_fila)
 {
     Nodo *temp=cabeza_fila;
-    while(temp->abajo!=0){
-        temp=temp->abajo;
+    bool piv=false;
+    while(true){
+        //temp=temp->siguiente;
+        if(temp->posY==nuevo->posY){
+            temp->posX=nuevo->posX;
+            temp->Color=nuevo->Color;
+            return temp;
+        }else if(temp->posY>nuevo->posY){
+            piv=true;
+            break;
+        }
+        if(temp->abajo){
+            temp=temp->abajo;
+        }else{
+            break;
+        }
     }
-    temp->abajo=nuevo;
-    nuevo->arriba=temp;
+    if(piv){
+        nuevo->abajo=temp;
+        temp->arriba->abajo=nuevo;
+        nuevo->arriba=temp->arriba;
+        temp->arriba=nuevo;
+    }else{
+        temp->abajo=nuevo;
+        nuevo->arriba=temp;
+    }
     delete temp;
     return nuevo;
 }
@@ -121,16 +163,31 @@ void Lista_Matriz::insertar_elemento(int x, int y, std::string color){
 void Lista_Matriz::crear_raiz(std::string capa)
 {
     Nodo *nuevo_nodo = new Nodo(-1,-1,capa);
+    bool piv=false;
     if(this->cabeza==0){
         this->cabeza=nuevo_nodo;
     }else{
         Nodo *aux=this->cabeza;
-        while (aux->adelante!=0)
-        {
-            aux=aux->adelante;
+        while (true){
+            if(capa.compare(aux->Color)>0){
+                piv=true;
+                break;
+            }
+            if(aux->adelante!=0){
+                aux=aux->adelante;
+            }else{
+                break;
+            }
         }
-        aux->adelante=nuevo_nodo;
-        nuevo_nodo->atras=aux;
+        if(piv){
+            nuevo_nodo->adelante=aux;
+            aux->atras->adelante=nuevo_nodo;
+            nuevo_nodo->atras=aux->atras;
+            aux->atras=nuevo_nodo;
+        }else{
+            aux->adelante=nuevo_nodo;
+            nuevo_nodo->atras=aux;
+        }
     }
 }
 

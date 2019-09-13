@@ -42,6 +42,8 @@
 		<Unit filename="dato.h" />
 		<Unit filename="generador_html.cpp" />
 		<Unit filename="generador_html.h" />
+		<Unit filename="lista_circular.cpp" />
+		<Unit filename="lista_circular.h" />
 		<Unit filename="lista_matriz.cpp" />
 		<Unit filename="lista_matriz.h" />
 		<Unit filename="main.cpp" />
@@ -49,6 +51,8 @@
 		<Unit filename="nodo.h" />
 		<Unit filename="nodo_arbol.cpp" />
 		<Unit filename="nodo_arbol.h" />
+		<Unit filename="nodo_circular.cpp" />
+		<Unit filename="nodo_circular.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

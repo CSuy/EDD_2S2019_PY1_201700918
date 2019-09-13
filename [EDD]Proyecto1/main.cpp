@@ -13,6 +13,7 @@ using namespace std;
 
 void insertar_Imagen();
 void comparar();
+void filtros();
 void ingresar(std::string archivo, std::string nombre);
 void otros_csv(std::string other_file, std::string nombre);
 void capas(std::string nombre, int id);
@@ -30,7 +31,7 @@ int main()
     do
     {
         system("cls");
-        comparar();
+        //comparar();
         cout << "---------- MENU PHOTGEN+++ ----------" << endl;
         cout << "1. INSERTAR IMAGEN" << endl;
         cout << "2. SELECCIONAR IMAGEN" << endl;
@@ -56,7 +57,7 @@ int main()
             break;
         case 3:
             system("cls");
-            printf("Aqui aplico filtros");
+            filtros();
             getwchar();
             getwchar();
             break;
@@ -127,6 +128,17 @@ void comparar()
         cout << "no se pudo" << endl;
     }
     nuevo.generador_prueba();
+    int x=0;
+    while (true)
+    {
+        if(x>2){
+            break;
+        }else{
+            cout << x << endl;
+            x++;
+        }
+    }
+    
 
 }
 
@@ -146,4 +158,35 @@ void capas(std::string nombre, int id)
 
     /*Lista_Matriz nuevo;
     nuevo.crear_raiz(nombre);*/
+}
+
+void filtros()
+{
+    int eleccion, eleccion2;
+    cout << "---------- Aplicacion de Filtros ----------" << endl;
+    cout << "Filtros Disponibles" << endl;
+    cout << "1. Negativo" << endl;
+    cout << "2. Escala de Grises" << endl;
+    cout << "3. Espejo eje x" << endl;
+    cout << "4. Espejo eje y" << endl;
+    cout << "5. Espejo en ambos ejes" << endl;
+    cout << "6. Collage" << endl;
+    cout << "7. Mosaico" << endl;
+    cin >> eleccion;
+    cout << "" << endl;
+    cout << "A cual desea aplicar filtros:" << endl;
+    cout << "1. Imagen Completa" << endl;
+    cout << "2. A una capa especifica" << endl;
+    cin >> eleccion2;
+    switch (eleccion2)
+    {
+    case 1:
+        
+        cout << "Filtro Aplicado" << endl;
+        break;
+    case 2:
+        
+        cout << "Filtro Aplicado" << endl;
+        break;
+    }
 }

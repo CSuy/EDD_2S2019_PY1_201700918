@@ -103,13 +103,13 @@ void generador_html::generar_html(Nodo_Arbol *matrix, std::string nombre_css)
 void generador_html::generador_prueba()
 {
     ofstream archivo;
-    archivo.open("prueba.css",ios::out);
+    archivo.open("Ave/prueba.css",ios::out);
     if (archivo.fail())
     {
         cout << "se produjo un error al crear el css" << endl;
     }else
     {
-        archivo << "body{ \n }";
+        archivo << "body{ \n aqui va un algoritmo \n }";
         cout <<"archivo creado" << endl;
         archivo.close();
     }
