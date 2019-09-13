@@ -13,20 +13,28 @@ using namespace std;
 class Arbol_Binario
 {
     public:
-        void insertar(std::string nombre_img, std::string caracteristicas, Nodo *matrix);
+        void insertar(std::string nombre_img, int alto_i, int ancho_i, int alto_p, int ancho_p, Nodo *matrix);
         void Grafica_inorden();
         void Grafica_preorden();
         void Grafica_posorden();
         void mostrar_lista();
+        void leer_archivos(std::string archivo, std::string nombre_imagen);
+        void lectura_config(std::string archivo);
+        void lectura_capas(std::string archivo);
         int id;
         Arbol_Binario();
         virtual ~Arbol_Binario();
 
     protected:
+        int alto__i;
+        int ancho__i;
+        int alto__p;
+        int ancho__p;
+        std::string nombre__i;
 
     private:
         Nodo_Arbol *Raiz;
-        Nodo_Arbol *insertar(Nodo_Arbol *raiz, std::string nombre_img, std::string caracteristicas, Nodo *matrix);
+        Nodo_Arbol *insertar(Nodo_Arbol *raiz, std::string nombre_img, int alto_i, int ancho_i, int alto_p, int ancho_p, Nodo *matrix);
         std::string inorden(Nodo_Arbol *raiz);
         std::string preorden(Nodo_Arbol *raiz);
         std::string posorden(Nodo_Arbol *raiz);

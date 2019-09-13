@@ -40,6 +40,8 @@
 		<Unit filename="arbol_binario.h" />
 		<Unit filename="dato.cpp" />
 		<Unit filename="dato.h" />
+		<Unit filename="generador_html.cpp" />
+		<Unit filename="generador_html.h" />
 		<Unit filename="lista_matriz.cpp" />
 		<Unit filename="lista_matriz.h" />
 		<Unit filename="main.cpp" />

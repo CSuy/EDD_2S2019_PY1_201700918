@@ -7,6 +7,7 @@
 #include <sstream>
 #include "lista_matriz.h"
 #include "arbol_binario.h"
+#include "generador_html.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ void otros_csv(std::string other_file, std::string nombre);
 void capas(std::string nombre, int id);
 std::string imagen_en_proceso;
 Arbol_Binario *arbol = new Arbol_Binario();
+
 
 int main()
 {
@@ -107,6 +109,7 @@ void insertar_Imagen()
 
 void comparar()
 {
+    generador_html nuevo;
     std::string cadena1="hola";
     std::string cadena2="holi";
     cout << cadena1.compare(cadena2) << endl; //-1
@@ -123,39 +126,13 @@ void comparar()
     }catch(exception){
         cout << "no se pudo" << endl;
     }
+    nuevo.generador_prueba();
 
 }
 
 void ingresar(std::string archivo, std::string nombre)
 {
-    try{
-        ifstream lectura;
-        lectura.open(archivo, ios::in);
-        std::string layer;
-        std::string file;
-        std::string capas="";
-        while (lectura.good())
-        {
-            getline(lectura, layer, ',');
-            getline(lectura, file, '\n');
-            try{
-                int numero=std::stoi(layer);
-                if(numero==0){
-                    
-                }else{
-                    capas+=layer;
-                    capas+=",";
-                    capas+=file;
-                    capas+="\n";
-                }
-            }catch(exception){
-
-            }
-        }
-        
-    }catch(exception){
-        cout << "Se produjo un error al leer archivos" << endl;
-    }
+    arbol->leer_archivos(archivo,nombre);
 }
 
 void otros_csv(std::string other_file, std::string nombre)
