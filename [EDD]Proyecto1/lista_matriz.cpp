@@ -18,7 +18,6 @@ Nodo* Lista_Matriz::buscarF(int y)
         }
         aux=aux->abajo;
     }
-    delete aux;
     return 0;
 }
 /** metodo que va a devolver la cabecera de la columna**/
@@ -31,7 +30,6 @@ Nodo* Lista_Matriz::buscarC(int x)
         }
         aux=aux->siguiente;
     }
-    delete aux;
     return 0;
 }
 Nodo* Lista_Matriz::insertar_columna(Nodo *nuevo, Nodo *cabeza_columna)
@@ -63,7 +61,6 @@ Nodo* Lista_Matriz::insertar_columna(Nodo *nuevo, Nodo *cabeza_columna)
         temp->siguiente=nuevo;
         nuevo->anterior=temp;
     }
-    delete temp;
     return nuevo;
 }
 Nodo* Lista_Matriz::insertar_fila(Nodo *nuevo, Nodo *cabeza_fila)
@@ -95,7 +92,6 @@ Nodo* Lista_Matriz::insertar_fila(Nodo *nuevo, Nodo *cabeza_fila)
         temp->abajo=nuevo;
         nuevo->arriba=temp;
     }
-    delete temp;
     return nuevo;
 }
 Nodo* Lista_Matriz::nueva_columna(int x)
@@ -104,9 +100,6 @@ Nodo* Lista_Matriz::nueva_columna(int x)
     string col="C";
     col+=x;
     Nodo *columna=this->insertar_columna(new Nodo(x,-1,col), piv);
-    if(columna != 0){
-        delete piv;
-    }
     return columna;
 }
 
@@ -116,9 +109,6 @@ Nodo* Lista_Matriz::nueva_fila(int y)
     string fil="F";
     fil+=y;
     Nodo *fila=this->insertar_fila(new Nodo(-1,y,fil), piv);
-    if(fila != 0){
-        delete piv;
-    }
     return fila;
 }
 /** Metodo para poder insertar a la matriz dispersa **/

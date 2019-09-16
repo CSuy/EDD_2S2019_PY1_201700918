@@ -14,18 +14,13 @@ using namespace std;
 void insertar_Imagen();
 void comparar();
 void filtros();
-void ingresar(std::string archivo, std::string nombre);
-void otros_csv(std::string other_file, std::string nombre);
-void capas(std::string nombre, int id);
+void imagen_cargadas();
 std::string imagen_en_proceso;
 Arbol_Binario *arbol = new Arbol_Binario();
 
 
 int main()
 {
-    /*char cadena1[]="arco";
-    char cadena2[]="avion";
-    int x1= strcmp(cadena1,cadena2); */
     bool menu=false;
     int opcion1;
     do
@@ -51,7 +46,7 @@ int main()
             break;
         case 2:
             system("cls");
-            printf("Esta es la seleccion de imagen");
+            imagen_cargadas();
             getwchar();
             getwchar();
             break;
@@ -93,7 +88,7 @@ int main()
 void insertar_Imagen()
 {
     string opcion1;
-    
+    string carpeta;
     string nombre;
         system("cls");
         cout << "---------- MENU PHOTGEN+++ ----------" << endl;
@@ -102,7 +97,7 @@ void insertar_Imagen()
         cout << "Ingrese el nombre del archivo .csv a utilizar" << endl;
         cin >> opcion1;
         try{
-            ingresar(opcion1, nombre);
+            arbol->leer_archivos(opcion1,nombre);
         }catch(string archivo){
 
         }
@@ -142,24 +137,6 @@ void comparar()
 
 }
 
-void ingresar(std::string archivo, std::string nombre)
-{
-    arbol->leer_archivos(archivo,nombre);
-}
-
-void otros_csv(std::string other_file, std::string nombre)
-{
-
-}
-
-void capas(std::string nombre, int id)
-{
-    
-
-    /*Lista_Matriz nuevo;
-    nuevo.crear_raiz(nombre);*/
-}
-
 void filtros()
 {
     int eleccion, eleccion2;
@@ -172,6 +149,8 @@ void filtros()
     cout << "5. Espejo en ambos ejes" << endl;
     cout << "6. Collage" << endl;
     cout << "7. Mosaico" << endl;
+    cout << "" << endl;
+    cout << "Cual desea aplicar:";
     cin >> eleccion;
     cout << "" << endl;
     cout << "A cual desea aplicar filtros:" << endl;
@@ -189,4 +168,16 @@ void filtros()
         cout << "Filtro Aplicado" << endl;
         break;
     }
+}
+
+void imagen_cargadas()
+{
+    std::string img;
+    cout << "---------- Imagenes Cargadas ----------" << endl;
+    cout << "Imagenes Disponibles" << endl;
+    arbol->mostrar_lista();
+    cout << "Escriba el nombre de la imagen que desea trabajar" << endl;
+    cin >> img;
+    imagen_en_proceso=img;
+    cout << "Usted Selecciono: " << imagen_en_proceso << endl;
 }

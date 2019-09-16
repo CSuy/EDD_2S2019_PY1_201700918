@@ -14,7 +14,7 @@ void generador_html::generar_css(Nodo_Arbol *matrix)
     std::string nombre_archivo=matrix->Nombre_imagen;
     nombre_archivo+=".css";
     int x=1;
-    int x_pixel=1;
+    int x_pixel=0;
     ofstream archivo;
     archivo.open(nombre_archivo,ios::out);
     if(archivo.fail()){
@@ -45,7 +45,7 @@ void generador_html::generar_css(Nodo_Arbol *matrix)
         /*colocar el ciclo con el cual se le otorga el color a cada pixel */
         while(aux!=0){
             while (aux1!=0){
-                if(aux1->posX+1==x_pixel){
+                if(aux1->posX==x_pixel){
                     std::string color=aux1->Color;
                     int j=color.size()+1;
                     char auxiliar[j];
@@ -68,7 +68,7 @@ void generador_html::generar_css(Nodo_Arbol *matrix)
             }
            aux=aux->abajo;
            aux1=aux->siguiente;
-           x_pixel=1;
+           x_pixel=0;
         }
         archivo.close();
     }
@@ -82,7 +82,11 @@ void generador_html::generar_html(Nodo_Arbol *matrix, std::string nombre_css)
     std::string nombre_archivo=matrix->Nombre_imagen;
     nombre_archivo+=".html";
     ofstream archivo;
-    archivo.open(nombre_archivo,ios::out);
+    std::string ruta="CSV/";
+    ruta+=matrix->Nombre_imagen;
+    ruta+="/";
+    ruta+=nombre_archivo;
+    archivo.open(ruta,ios::out);
     if(archivo.fail()){
         cout << "hubo un erro al crear el archivo html" << endl;
 

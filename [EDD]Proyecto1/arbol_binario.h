@@ -2,6 +2,7 @@
 #define ARBOL_BINARIO_H
 #include "nodo_arbol.h"
 #include "nodo.h"
+#include "lista_matriz.h"
 #include <iostream>
 #include <cstring>
 #include <fstream>
@@ -19,8 +20,8 @@ class Arbol_Binario
         void Grafica_posorden();
         void mostrar_lista();
         void leer_archivos(std::string archivo, std::string nombre_imagen);
-        void lectura_config(std::string archivo);
-        void lectura_capas(std::string archivo);
+        void lectura_config(std::string carpeta,std::string archivo);
+        void lectura_capas(Lista_Matriz *lista,std::string carpeta, std::string archivo, std::string capa);
         int id;
         Arbol_Binario();
         virtual ~Arbol_Binario();
