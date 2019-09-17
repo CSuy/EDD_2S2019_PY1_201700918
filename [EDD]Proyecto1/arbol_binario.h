@@ -19,6 +19,8 @@ class Arbol_Binario
         void Grafica_preorden();
         void Grafica_posorden();
         void mostrar_lista();
+        void matriz_auxiliar(std::string nombre_imagen);
+        Nodo_Arbol *buscar(std::string nombre_imagen);
         void leer_archivos(std::string archivo, std::string nombre_imagen);
         void lectura_config(std::string carpeta,std::string archivo);
         void lectura_capas(Lista_Matriz *lista,std::string carpeta, std::string archivo, std::string capa);

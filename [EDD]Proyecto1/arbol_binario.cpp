@@ -1,6 +1,7 @@
 #include "arbol_binario.h"
 #include "lista_matriz.h"
 #include "nodo.h"
+#include "generador_html.h"
 #include <cstring>
 #include <iostream>
 #include <fstream>
@@ -173,28 +174,62 @@ void Arbol_Binario::leer_archivos(std::string archivo, std::string nombre_imagen
         string ruta="CSV/";
         ruta+=nombre_imagen;
         ruta+="/";
-        ruta=archivo;
+        ruta+=archivo;
         lectura.open(ruta, ios::in);
-        std::string layer;
-        std::string file;
-        std::string capas="";
-        while (lectura.good())
-        {
-            getline(lectura, layer, ',');
-            getline(lectura, file, '\n');
-            try{
-                int numero=std::stoi(layer);
-                if(numero==0){
-                    lectura_config(nombre_imagen,file);
-                }else{
-                    lectura_capas(nueva_matriz,nombre_imagen,file,layer);
+        bool prueba = false;
+        int temporal;
+        for(std::string fila; std::getline(lectura,fila);){
+            std::stringstream lineas(fila);
+            std::string dato;
+            if(prueba){
+                for(int col=0; std::getline(lineas,dato,',');col++){
+                    try{
+                        temporal = std::stoi(dato);
+                    //cout << "es un numero " << dato << endl;
+                    }catch(exception){
+                        cout << temporal << " " << dato << endl;
+                    }
                 }
-            }catch(exception){
-
+                if(temporal==0){
+                    lectura_config(nombre_imagen,dato);
+                }else if(temporal==1){
+                    //lectura_capas(nueva_matriz,nombre_imagen,dato,std::to_string(temporal));
+                    try{
+                        ifstream lectura;
+                        string ruta="CSV/";
+                        ruta+=nombre_imagen;
+                        ruta+="/";
+                        ruta+=dato;
+                        lectura.open(ruta, ios::in);
+                        std::string layer;
+                        std::string file;
+                        int x; int y=0;
+                        nueva_matriz->crear_raiz(std::to_string(temporal));
+                        for(std::string fila; std::getline(lectura,fila);){
+                            std::stringstream lineas(fila);
+                            std::string dato;
+                            x=0;
+                            for(int col=0; std::getline(lineas,dato,',');col++){
+                                if(dato!="x" || dato!="X"){
+                                    nueva_matriz->insertar_elemento(x,y,dato);
+                                }
+                                x++;
+                            }
+                            y++;
+                        }
+                        cout << "se ingreso con exito :)" << endl;
+                    }catch(exception){
+                        cout << "Se produjo un error al leer archivos" << endl;
+                    }
+                }else{
+                    nueva_matriz->crear_raiz(std::to_string(temporal));
+                    cout << "se ingreso con exito :)" << endl;
+                }
             }
+            prueba=true;
         }
-        lectura.close();
-        insertar(nombre_imagen,this->alto__i,this->ancho__i,this->alto__p,this->ancho__p,nueva_matriz->cabeza);
+        //insertar(nombre_imagen,this->alto__i,this->ancho__i,this->alto__p,this->ancho__p,nueva_matriz->cabeza);
+        cout << "Se cargo con exito" << endl;
     }catch(exception){
         cout << "Se produjo un error al leer archivos" << endl;
     }
@@ -207,29 +242,35 @@ void Arbol_Binario::lectura_config(std::string carpeta,std::string archivo)
         string ruta="CSV/";
         ruta+=carpeta;
         ruta+="/";
-        ruta=archivo;
+        ruta+=archivo;
         lectura1.open(ruta, ios::in);
         std::string nombre_especificacion;
-        std::string tamanio;
-        while (lectura1.good())
-        {
-            getline(lectura1,nombre_especificacion, ',');
-            getline(lectura1,tamanio,'\n');
-            try{
-                if(nombre_especificacion=="image_width"){
-                    this->ancho__i=std::stoi(tamanio);
-                }else if(nombre_especificacion=="image_height"){
-                    this->alto__i=std::stoi(tamanio);
-                }else if(nombre_especificacion=="pixel_width"){
-                    this->ancho__p=std::stoi(tamanio);
-                }else if (nombre_especificacion=="pixel_height"){
-                    this->alto__p=std::stoi(tamanio);
+        int tamanio;
+        bool prueba = false;
+        for(std::string fila; std::getline(lectura1,fila);){
+            std::stringstream lineas(fila);
+            std::string dato;
+            if(prueba){
+                for(int col=0; std::getline(lineas,dato,',');col++){
+                    try{
+                        tamanio=std::stoi(dato);
+                    }catch(exception){
+                        nombre_especificacion=dato;
+                    }
                 }
-                
-            }catch(exception){
-
+                if(nombre_especificacion=="image_width"){
+                    this->ancho__i=tamanio;
+                }else if(nombre_especificacion=="image_height"){
+                    this->alto__i=tamanio;
+                }else if(nombre_especificacion=="pixel_width"){
+                    this->ancho__p=tamanio;
+                }else if (nombre_especificacion=="pixel_height"){
+                    this->alto__p=tamanio;
+                }
+                cout << tamanio << " " << nombre_especificacion << endl; 
             }
-        }               
+            prueba=true;
+        }              
     }catch(exception){
         cout << "se produjo un error al leer el archivo .csv" << endl;
     }
@@ -242,7 +283,7 @@ void Arbol_Binario::lectura_capas(Lista_Matriz *lista,std::string carpeta,std::s
         string ruta="CSV/";
         ruta+=carpeta;
         ruta+="/";
-        ruta=archivo;
+        ruta+=archivo;
         lectura.open(ruta, ios::in);
         std::string layer;
         std::string file;
@@ -260,11 +301,51 @@ void Arbol_Binario::lectura_capas(Lista_Matriz *lista,std::string carpeta,std::s
             }
             y++;
         }
-
-        lectura.close();
+        cout << "se ingreso con exito :)" << endl;
     }catch(exception){
         cout << "Se produjo un error al leer archivos" << endl;
     }
+}
+
+void Arbol_Binario::matriz_auxiliar(std::string nombre_imagen)
+{
+    Nodo *aux = this->Raiz->matriz;
+    Nodo *aux1=aux->abajo;
+    Nodo *aux2 = aux1->siguiente;
+    Nodo_Arbol *nombre = buscar(nombre_imagen);
+    Lista_Matriz *copia = new Lista_Matriz();
+    generador_html *nuevo = new generador_html();
+    while (aux!=0)
+    {
+        while (aux1!=0)
+        {
+            while (aux2!=0)
+            {
+                copia->insertar_elemento(aux2->posX,aux2->posY,aux2->Color);
+                aux2=aux2->siguiente;
+            }
+            aux1=aux1->abajo;
+            aux2=aux1->siguiente;
+        }
+        aux=aux->adelante;
+        aux1=aux->abajo;
+        aux2=aux1->siguiente;
+    }
+    nuevo->generar_css(nombre,copia->cabeza);     
+}
+
+Nodo_Arbol* Arbol_Binario::buscar(std::string nombre_imagen)
+{
+    Nodo_Arbol *imagen=this->Raiz;
+    while(true){
+        buscar(imagen->izquierdo->Nombre_imagen);
+        if(nombre_imagen==imagen->Nombre_imagen){
+            return imagen;
+            break;
+        }
+        buscar(imagen->derecho->Nombre_imagen);
+    }
+    return imagen;
 }
 
 Arbol_Binario::~Arbol_Binario()

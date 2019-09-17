@@ -150,16 +150,15 @@ void Lista_Matriz::insertar_elemento(int x, int y, std::string color){
     }
 }
 
-void Lista_Matriz::crear_raiz(std::string capa)
+Nodo* Lista_Matriz::insertar_raiz(Nodo *nuevo, Nodo *raiz)
 {
-    Nodo *nuevo_nodo = new Nodo(-1,-1,capa);
     bool piv=false;
     if(this->cabeza==0){
-        this->cabeza=nuevo_nodo;
+        this->cabeza=nuevo;
     }else{
         Nodo *aux=this->cabeza;
-        while (true){
-            if(capa.compare(aux->Color)>0){
+        while (aux!=0){
+            if(raiz->Color.compare(aux->Color)>0){
                 piv=true;
                 break;
             }
@@ -170,15 +169,23 @@ void Lista_Matriz::crear_raiz(std::string capa)
             }
         }
         if(piv){
-            nuevo_nodo->adelante=aux;
-            aux->atras->adelante=nuevo_nodo;
-            nuevo_nodo->atras=aux->atras;
-            aux->atras=nuevo_nodo;
+            nuevo->adelante=aux;
+            aux->atras->adelante=nuevo;
+            nuevo->atras=aux->atras;
+            aux->atras=nuevo;
         }else{
-            aux->adelante=nuevo_nodo;
-            nuevo_nodo->atras=aux;
+            aux->adelante=nuevo;
+            nuevo->atras=aux;
         }
     }
+    return nuevo;
+}
+
+void Lista_Matriz::crear_raiz(std::string capa)
+{
+    Nodo *nuevo_nodo = new Nodo(-1,-1,capa);
+    nuevo_nodo=this->insertar_raiz(nuevo_nodo,this->cabeza);
+    return;
 }
 
 Lista_Matriz::~Lista_Matriz()

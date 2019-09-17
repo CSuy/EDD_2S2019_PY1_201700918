@@ -7,16 +7,20 @@ generador_html::generador_html()
     //ctor
 }
 
-void generador_html::generar_css(Nodo_Arbol *matrix)
+void generador_html::generar_css(Nodo_Arbol *matrix, Nodo* matriz_aux)
 {
-    Nodo *aux=matrix->matriz->abajo; /*Fila*/
+    Nodo *aux=matriz_aux->abajo ; /*Fila*/
     Nodo *aux1=aux->siguiente; /*Columna*/
     std::string nombre_archivo=matrix->Nombre_imagen;
+    string ruta="CSV/";
     nombre_archivo+=".css";
+    ruta+=matrix->Nombre_imagen;
+    ruta+="/";
+    ruta=nombre_archivo;
     int x=1;
     int x_pixel=0;
     ofstream archivo;
-    archivo.open(nombre_archivo,ios::out);
+    archivo.open(ruta,ios::out);
     if(archivo.fail()){
         cout << "hubo un erro al crear el archivo css" << endl;
     }else{

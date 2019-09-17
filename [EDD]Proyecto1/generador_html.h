@@ -9,7 +9,7 @@
 class generador_html
 {
     public:
-        void generar_css(Nodo_Arbol *hoja);
+        void generar_css(Nodo_Arbol *hoja, Nodo *matriz_aux);
         void generar_cssFiltros(Nodo_Arbol *hoja);
         void generar_html(Nodo_Arbol *hoja, std::string nombre_css);
         void generador_prueba();

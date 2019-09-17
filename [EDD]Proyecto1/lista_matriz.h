@@ -15,6 +15,7 @@ class Lista_Matriz
         Nodo *insertar_columna(Nodo *nuevo, Nodo *cabeza_columna);
         Nodo *buscarF(int y);
         Nodo *buscarC(int x);
+        Nodo *insertar_raiz(Nodo *nuevo, Nodo *raiz);
         void crear_raiz(std::string nombre_capa);
         virtual ~Lista_Matriz();
 

@@ -15,6 +15,7 @@ void insertar_Imagen();
 void comparar();
 void filtros();
 void imagen_cargadas();
+void exportar_imagen();
 std::string imagen_en_proceso;
 Arbol_Binario *arbol = new Arbol_Binario();
 
@@ -64,7 +65,7 @@ int main()
             break;
         case 5:
             system("cls");
-            printf("aqui vamos a exportar imagen");
+            exportar_imagen();
             getwchar();
             getwchar();
             break;
@@ -180,4 +181,9 @@ void imagen_cargadas()
     cin >> img;
     imagen_en_proceso=img;
     cout << "Usted Selecciono: " << imagen_en_proceso << endl;
+}
+
+void exportar_imagen()
+{
+    arbol->matriz_auxiliar(imagen_en_proceso);
 }
