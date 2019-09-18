@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1568760810 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
+1568772222 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
 	"arbol_binario.h"
 	"lista_matriz.h"
 	"nodo.h"
@@ -10,7 +10,7 @@
 	<sstream>
 	<stdlib.h>
 
-1568729866 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.h
+1568773265 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.h
 	"nodo_arbol.h"
 	"nodo.h"
 	"lista_matriz.h"
@@ -27,7 +27,7 @@
 1567889028 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo.h
 	<string>
 
-1568761480 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.h
+1568762327 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.h
 	"nodo.h"
 
 1567639824 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\dato.cpp
@@ -57,7 +57,7 @@
 1568406405 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_circular.h
 	<string>
 
-1568760524 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.cpp
+1568762327 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.cpp
 	"lista_matriz.h"
 	<iostream>
 	<string>
@@ -73,7 +73,7 @@
 1568406430 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_circular.cpp
 	"nodo_circular.h"
 
-1568740987 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
+1568773143 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
 	<iostream>
 	<string>
 	<string.h>

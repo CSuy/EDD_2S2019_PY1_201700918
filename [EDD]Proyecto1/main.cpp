@@ -98,7 +98,7 @@ void insertar_Imagen()
         cout << "Ingrese el nombre del archivo .csv a utilizar" << endl;
         cin >> opcion1;
         try{
-            arbol->leer_archivos(opcion1,nombre);
+           arbol->leer_archivos(opcion1,nombre);
         }catch(string archivo){
 
         }
@@ -176,7 +176,7 @@ void imagen_cargadas()
     std::string img;
     cout << "---------- Imagenes Cargadas ----------" << endl;
     cout << "Imagenes Disponibles" << endl;
-    arbol->mostrar_lista();
+    arbol->mostrar_lista(arbol->getRaiz());
     cout << "Escriba el nombre de la imagen que desea trabajar" << endl;
     cin >> img;
     imagen_en_proceso=img;

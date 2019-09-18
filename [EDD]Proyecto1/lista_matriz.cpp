@@ -9,9 +9,9 @@ Lista_Matriz::Lista_Matriz()
     this->cabeza=0;
 }
 /** metodo que va a devolver la cabecera de la fila**/
-Nodo* Lista_Matriz::buscarF(int y)
+Nodo* Lista_Matriz::buscarF(int y, Nodo *raiz)
 {
-    Nodo *aux=cabeza;
+    Nodo *aux=raiz;
     while(aux != 0){
         if(aux->posY == y){
             return aux;
@@ -21,9 +21,9 @@ Nodo* Lista_Matriz::buscarF(int y)
     return 0;
 }
 /** metodo que va a devolver la cabecera de la columna**/
-Nodo* Lista_Matriz::buscarC(int x)
+Nodo* Lista_Matriz::buscarC(int x, Nodo *raiz)
 {
-    Nodo *aux=cabeza;
+    Nodo *aux=raiz;
     while(aux != 0){
         if(aux->posX==x){
             return aux;
@@ -94,47 +94,47 @@ Nodo* Lista_Matriz::insertar_fila(Nodo *nuevo, Nodo *cabeza_fila)
     }
     return nuevo;
 }
-Nodo* Lista_Matriz::nueva_columna(int x)
+Nodo* Lista_Matriz::nueva_columna(int x, Nodo *raiz)
 {
-    Nodo *piv=cabeza;
+    Nodo *piv=raiz;
     string col="C";
     col+=x;
     Nodo *columna=this->insertar_columna(new Nodo(x,-1,col), piv);
     return columna;
 }
 
-Nodo* Lista_Matriz::nueva_fila(int y)
+Nodo* Lista_Matriz::nueva_fila(int y, Nodo *raiz)
 {
-    Nodo *piv=cabeza;
+    Nodo *piv=raiz;
     string fil="F";
     fil+=y;
     Nodo *fila=this->insertar_fila(new Nodo(-1,y,fil), piv);
     return fila;
 }
 /** Metodo para poder insertar a la matriz dispersa **/
-void Lista_Matriz::insertar_elemento(int x, int y, std::string color){
+void Lista_Matriz::insertar_elemento(int x, int y, std::string color, Nodo *raiz){
 /** se presenta los casos mas normales**/
     Nodo *nuevo = new Nodo(x,y,color);
-    Nodo *nodo_Columna = this->buscarC(x);
-    Nodo *nodo_Fila = this->buscarF(y);
+    Nodo *nodo_Columna = this->buscarC(x,raiz);
+    Nodo *nodo_Fila = this->buscarF(y, raiz);
 /**Caso 1**/
     if(nodo_Columna == 0 && nodo_Fila==0){
-        nodo_Columna = this->nueva_columna(x);
-        nodo_Fila = this->nueva_fila(y);
+        nodo_Columna = this->nueva_columna(x, raiz);
+        nodo_Fila = this->nueva_fila(y,raiz);
         nuevo=this->insertar_columna(nuevo, nodo_Fila);
         nuevo=this->insertar_fila(nuevo, nodo_Columna);
         return;
     }
 /**Caso 2**/
     else if(nodo_Columna == 0 && nodo_Fila!=0){
-        nodo_Columna = this->nueva_columna(x);
+        nodo_Columna = this->nueva_columna(x,raiz);
         nuevo=this->insertar_columna(nuevo, nodo_Fila);
         nuevo=this->insertar_fila(nuevo, nodo_Columna);
         return;
     }
 /**Caso 3**/
     else if(nodo_Columna != 0 && nodo_Fila == 0){
-        nodo_Fila = this->nueva_fila(y);
+        nodo_Fila = this->nueva_fila(y,raiz);
         nuevo=this->insertar_columna(nuevo, nodo_Fila);
         nuevo=this->insertar_fila(nuevo, nodo_Columna);
         return;
@@ -181,11 +181,11 @@ Nodo* Lista_Matriz::insertar_raiz(Nodo *nuevo, Nodo *raiz)
     return nuevo;
 }
 
-void Lista_Matriz::crear_raiz(std::string capa)
+Nodo* Lista_Matriz::crear_raiz(std::string capa)
 {
     Nodo *nuevo_nodo = new Nodo(-1,-1,capa);
     nuevo_nodo=this->insertar_raiz(nuevo_nodo,this->cabeza);
-    return;
+    return nuevo_nodo;
 }
 
 Lista_Matriz::~Lista_Matriz()
