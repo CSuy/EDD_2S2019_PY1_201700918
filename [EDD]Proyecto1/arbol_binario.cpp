@@ -331,18 +331,11 @@ void Arbol_Binario::matriz_auxiliar(std::string nombre_imagen)
 {
     try{
         Nodo_Arbol *aux=buscar(this->Raiz,nombre_imagen);
+        generador_html *nuevo;
         if(aux!=0){
             cout << "no hubo problema xD " << aux->Nombre_imagen << endl;
             Nodo *&copia=aux->matriz;
-            while(copia!=0){
-                cout << copia->Color << endl;
-                Nodo *copia1=copia->siguiente;
-                while(copia1!=0){
-                    cout << copia1->Color << endl;
-                    copia1=copia1->siguiente;
-                }
-                copia=copia->adelante;
-            }
+            nuevo->generar_css(aux,copia);
         }else{
             cout << "no se encontro el nodo" << endl;
         }

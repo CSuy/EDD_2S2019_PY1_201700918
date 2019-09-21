@@ -17,7 +17,7 @@ void generador_html::generar_css(Nodo_Arbol *&matrix, Nodo *&matriz_aux)
         nombre_archivo+=".css";
         ruta+=matrix->Nombre_imagen;
         ruta+="/";
-        ruta=nombre_archivo;
+        ruta+=nombre_archivo;
         int x=1;
         int x_pixel=0;
         ofstream archivo;
@@ -25,6 +25,11 @@ void generador_html::generar_css(Nodo_Arbol *&matrix, Nodo *&matriz_aux)
         if(archivo.fail()){
             cout << "hubo un erro al crear el archivo css" << endl;
         }else{
+            archivo << "body{\n background: #333333; \n height: 100vh; \n display: flex; \n justify-content: center; \n align-items: center; \n } \n";
+            archivo << ".canvas{ \n width: " << matrix->ancho_imagen*matrix->ancho_pixel << "; \n";
+            archivo << "height: " << matrix->alto_imagen*matrix->alto_pixel << "; \n } \n";
+            archivo << ".pixel{ \n width: " << matrix->ancho_pixel << "; \n";
+            archivo << "height: " << matrix->alto_pixel << "\n float: left; \n } \n";
         }
         //generar_html(matrix, nombre_archivo);
     }catch(exception){
