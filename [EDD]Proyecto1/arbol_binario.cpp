@@ -24,25 +24,17 @@ Arbol_Binario::Arbol_Binario()
     this->id=1;
 }
 
-Nodo_Arbol* Arbol_Binario::insertar1(Nodo_Arbol *&raiz, Nodo_Arbol *nuevo)
+Nodo_Arbol* Arbol_Binario::insertar1(Nodo_Arbol *&raiz, Nodo_Arbol *&nuevo)
 {
-    /*
-    if (raiz==0){
-        raiz=nuevo;
-    }else if (nombre1.compare(nombre2)>0){
-        raiz->derecho=insertar1(raiz->derecho,nuevo);
-    }else if (nombre1.compare(nombre2)<=0){
-        raiz->izquierdo=insertar1(raiz->izquierdo,nuevo);
-    }*/
     if(raiz==0){
         raiz=nuevo;
     }else{
         std::string nombre1=nuevo->Nombre_imagen;
         std::string nombre2=raiz->Nombre_imagen;
         if(nombre1.compare(nombre2)>0){
-            raiz->derecho=insertar1(raiz->derecho,nuevo);
+            insertar1(raiz->derecho,nuevo);
         }else{
-            raiz->izquierdo=insertar1(raiz->izquierdo,nuevo);
+            insertar1(raiz->izquierdo,nuevo);
         }
     }
     return raiz;
@@ -51,8 +43,7 @@ Nodo_Arbol* Arbol_Binario::insertar1(Nodo_Arbol *&raiz, Nodo_Arbol *nuevo)
 void Arbol_Binario::insertar(std::string nombre, int alto_i, int ancho_i, int alto_p, int ancho_p, Nodo *matrix)
 {
     Nodo_Arbol *nuevo_nodo = new Nodo_Arbol(nombre,alto_i, ancho_i, alto_p, ancho_p,matrix);
-    nuevo_nodo=insertar1(this->Raiz,nuevo_nodo);
-    return;
+    insertar1(this->Raiz,nuevo_nodo);
 }
 
 std::string Arbol_Binario::inorden(Nodo_Arbol *&raiz)
@@ -160,8 +151,8 @@ std::string Arbol_Binario::mostrar_lista1(Nodo_Arbol *raiz)
     if(raiz!=0){
         mostrar_lista1(raiz->izquierdo);
         cout << id << "." << raiz->Nombre_imagen << endl;
-        mostrar_lista1(raiz->derecho);
         this->id++;
+        mostrar_lista1(raiz->derecho);
     }
     return listado;
 }
@@ -216,18 +207,19 @@ void Arbol_Binario::leer_archivos(std::string archivo, std::string nombre_imagen
                         lectura.open(ruta, ios::in);
                         std::string layer;
                         std::string file;
-                        int x; int y=0;
+                        int x=0; int y=0;
                         Nodo *raiz_p=nueva_matriz->crear_raiz(std::to_string(temporal));
                         for(std::string fila; std::getline(lectura,fila);){
                             std::stringstream lineas(fila);
                             std::string dato;
-                            x=0;
                             for(int col=0; std::getline(lineas,dato,',');col++){
-                                if(dato!="x" || dato!="X"){
+                                if(dato.compare("x")==0 || dato.compare("X")==0){
+                                }else{
                                     nueva_matriz->insertar_elemento(x,y,dato,raiz_p);
                                 }
                                 x++;
                             }
+                            x=0;
                             y++;
                         }
                         cout << "se ingreso con exito :)" << endl;
@@ -318,46 +310,49 @@ void Arbol_Binario::lectura_capas(Lista_Matriz *lista,std::string carpeta,std::s
     }*/
 }
 
-void Arbol_Binario::matriz_auxiliar(std::string nombre_imagen)
+Nodo_Arbol* Arbol_Binario::buscar(Nodo_Arbol *&raiz, std::string nombre_imagen)
 {
-    /*Nodo *aux = this->Raiz->matriz;
-    Nodo *aux1=aux->abajo;
-    Nodo *aux2 = aux1->siguiente;
-    Nodo_Arbol *nombre = buscar(nombre_imagen);
-    Lista_Matriz *copia = new Lista_Matriz();
-    generador_html *nuevo = new generador_html();
-    while (aux!=0)
-    {
-        while (aux1!=0)
-        {
-            while (aux2!=0)
-            {
-                copia->insertar_elemento(aux2->posX,aux2->posY,aux2->Color,copia->);
-                aux2=aux2->siguiente;
+    if(raiz!=0){
+        if(raiz->Nombre_imagen==nombre_imagen){
+            return raiz;
+        }else{
+            if(nombre_imagen.compare(raiz->Nombre_imagen)>0){
+                return buscar(raiz->derecho,nombre_imagen);
+            }else{
+                return buscar(raiz->izquierdo,nombre_imagen);
             }
-            aux1=aux1->abajo;
-            aux2=aux1->siguiente;
         }
-        aux=aux->adelante;
-        aux1=aux->abajo;
-        aux2=aux1->siguiente;
+    }else{
+        return 0;
     }
-    nuevo->generar_css(nombre,copia->cabeza);*/     
 }
 
-Nodo_Arbol* Arbol_Binario::buscar(std::string nombre_imagen)
+void Arbol_Binario::matriz_auxiliar(std::string nombre_imagen)
 {
-    Nodo_Arbol *imagen=this->Raiz;
-    while(true){
-        buscar(imagen->izquierdo->Nombre_imagen);
-        if(nombre_imagen==imagen->Nombre_imagen){
-            return imagen;
-            break;
+    try{
+        Nodo_Arbol *aux=buscar(this->Raiz,nombre_imagen);
+        if(aux!=0){
+            cout << "no hubo problema xD " << aux->Nombre_imagen << endl;
+            Nodo *&copia=aux->matriz;
+            while(copia!=0){
+                cout << copia->Color << endl;
+                Nodo *copia1=copia->siguiente;
+                while(copia1!=0){
+                    cout << copia1->Color << endl;
+                    copia1=copia1->siguiente;
+                }
+                copia=copia->adelante;
+            }
+        }else{
+            cout << "no se encontro el nodo" << endl;
         }
-        buscar(imagen->derecho->Nombre_imagen);
+        
+    }catch(exception){
+        cout << "aqui en matrix auxiliar hubo error" << endl;
     }
-    return imagen;
+
 }
+
 
 Nodo_Arbol* Arbol_Binario::getRaiz()
 {

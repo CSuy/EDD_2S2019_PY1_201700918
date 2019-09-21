@@ -20,7 +20,6 @@ class Arbol_Binario
         void Grafica_posorden();
         void mostrar_lista(Nodo_Arbol *raices);
         void matriz_auxiliar(std::string nombre_imagen);
-        Nodo_Arbol *buscar(std::string nombre_imagen);
         void leer_archivos(std::string archivo, std::string nombre_imagen);
         void lectura_config(std::string carpeta,std::string archivo);
         void lectura_capas(Lista_Matriz *lista,std::string carpeta, std::string archivo, std::string capa);
@@ -39,11 +38,11 @@ class Arbol_Binario
 
     private:
         Nodo_Arbol *Raiz;
-        Nodo_Arbol *insertar1(Nodo_Arbol *&raiz, Nodo_Arbol *nuevo);
+        Nodo_Arbol *insertar1(Nodo_Arbol *&raiz, Nodo_Arbol *&nuevo);
         std::string inorden(Nodo_Arbol *&raiz);
         std::string preorden(Nodo_Arbol *&raiz);
         std::string posorden(Nodo_Arbol *&raiz);
-
+        Nodo_Arbol *buscar(Nodo_Arbol *&raiz,std::string nombre_imagen);
         std::string mostrar_lista1(Nodo_Arbol *raiz);
 };
 

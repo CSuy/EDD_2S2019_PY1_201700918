@@ -98,7 +98,7 @@ Nodo* Lista_Matriz::nueva_columna(int x, Nodo *raiz)
 {
     Nodo *piv=raiz;
     string col="C";
-    col+=x;
+    col+=std::to_string(x);
     Nodo *columna=this->insertar_columna(new Nodo(x,-1,col), piv);
     return columna;
 }
@@ -107,12 +107,13 @@ Nodo* Lista_Matriz::nueva_fila(int y, Nodo *raiz)
 {
     Nodo *piv=raiz;
     string fil="F";
-    fil+=y;
+    fil+=std::to_string(y);
     Nodo *fila=this->insertar_fila(new Nodo(-1,y,fil), piv);
     return fila;
 }
 /** Metodo para poder insertar a la matriz dispersa **/
-void Lista_Matriz::insertar_elemento(int x, int y, std::string color, Nodo *raiz){
+void Lista_Matriz::insertar_elemento(int x, int y, std::string color, Nodo *raiz)
+{
 /** se presenta los casos mas normales**/
     Nodo *nuevo = new Nodo(x,y,color);
     Nodo *nodo_Columna = this->buscarC(x,raiz);
