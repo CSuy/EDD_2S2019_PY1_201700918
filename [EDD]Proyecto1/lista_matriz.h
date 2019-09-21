@@ -1,6 +1,9 @@
 #ifndef LISTA_MATRIZ_H
 #define LISTA_MATRIZ_H
 #include "nodo.h"
+#include <fstream>
+#include <iostream>
+#include <string.h>
 
 
 class Lista_Matriz
@@ -17,6 +20,7 @@ class Lista_Matriz
         Nodo *buscarC(int x, Nodo *raiz);
         Nodo *insertar_raiz(Nodo *nuevo, Nodo *raiz);
         Nodo* crear_raiz(std::string nombre_capa);
+        void Graficar(Nodo *&raiz, std::string ruta);
         virtual ~Lista_Matriz();
 
     protected:

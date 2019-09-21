@@ -1,5 +1,6 @@
 #include "lista_matriz.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
@@ -187,6 +188,82 @@ Nodo* Lista_Matriz::crear_raiz(std::string capa)
     Nodo *nuevo_nodo = new Nodo(-1,-1,capa);
     nuevo_nodo=this->insertar_raiz(nuevo_nodo,this->cabeza);
     return nuevo_nodo;
+}
+
+void Lista_Matriz::Graficar(Nodo *&raiz, std::string ruta_1)
+{
+    try{
+        Nodo *aux3 = raiz;
+        Nodo *aux = raiz;
+        Nodo *aux1 = raiz;
+        int x=1;
+        ofstream archivo;
+        while(aux3!=0){
+            aux=aux3;
+            aux1=aux3;
+            std::string ruta=ruta_1;
+            std::string img=ruta_1;
+            img+="Capa";
+            img+=std::to_string(x);
+            img+=".jpg";
+            ruta+="Capa";
+            ruta+=std::to_string(x);
+            ruta+=".dot";
+            archivo.open(ruta,ios::out);
+            if(archivo.fail()){
+                cout << "se produjo un error al generar la grafica" << endl;
+            }else{
+                archivo << "digraph MatrizCapa{ \n node[shape=box] \n rankdir=UD; \n {rank=min; \n";
+                while(aux!=0){
+                    archivo << "nodo" << aux->posX+1 << aux->posY+1 << "[label=\"" << aux->Color << "\" ,rankdir=LR,group=" << aux->posX+1 << "]; \n"; 
+                    aux=aux->siguiente;
+                }
+                archivo << "} \n";
+                while(aux1!=0){
+                    aux=aux1;
+                    archivo << "{rank=same; \n";
+                    while(aux!=0){
+                        archivo << "nodo" << aux->posX+1 << aux->posY+1 << "[label=\"" << aux->Color << "\" ,group=" << aux->posX+1 << "]; \n";
+                        aux=aux->siguiente;
+                    }
+                    archivo << "} \n";
+                    aux1=aux1->abajo;
+                }
+                aux1=aux3;
+                while(aux1!=0){
+                    aux=aux1;
+                    while(aux->siguiente!=0){
+                        archivo << "nodo" << aux->posX+1 << aux->posY+1 << " -> " << "nodo" << aux->siguiente->posX+1 << aux->siguiente->posY+1 << " [dir=both];\n";
+                        aux=aux->siguiente;
+                    }
+                    aux1=aux1->abajo;
+                }
+                aux1=aux3;
+                while(aux1!=0){
+                    aux=aux1;
+                    while(aux->abajo!=0){
+                        archivo << "nodo" << aux->posX+1 << aux->posY+1 << " -> " << "nodo" << aux->abajo->posX+1 << aux->abajo->posY+1 << " [dir=both];\n";
+                        aux=aux->abajo;
+                    }
+                    aux1=aux1->siguiente;
+                }
+                archivo << "}";
+            }
+            archivo.close();
+            std::string codigo_cmd="dot -Tjpg ";
+            codigo_cmd+=ruta;
+            codigo_cmd+=" -o ";
+            codigo_cmd+=img;
+            char j[codigo_cmd.size()+1];
+            strcpy(j,codigo_cmd.c_str());
+            cout << j << endl;
+            system(j);
+            aux3=aux3->adelante;
+            x=x+1;
+        }
+    }catch(exception){
+            
+    }
 }
 
 Lista_Matriz::~Lista_Matriz()

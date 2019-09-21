@@ -346,6 +346,27 @@ void Arbol_Binario::matriz_auxiliar(std::string nombre_imagen)
 
 }
 
+void Arbol_Binario::graficar_matriz(std::string nombre_imagen)
+{
+    try{
+        Nodo_Arbol *aux=buscar(this->Raiz,nombre_imagen);
+        Lista_Matriz *nuevo_1;
+        generador_html *nuevo;
+        if(aux!=0){
+            cout << "no hubo problema xD " << aux->Nombre_imagen << endl;
+            Nodo *&copia=aux->matriz;
+            std::string ruta="CSV/";
+            ruta+=aux->Nombre_imagen;
+            ruta+="/";
+            nuevo_1->Graficar(copia,ruta);
+        }else{
+            cout << "no se encontro el nodo" << endl;
+        }
+        
+    }catch(exception){
+        cout << "aqui en matrix auxiliar hubo error" << endl;
+    }
+}
 
 Nodo_Arbol* Arbol_Binario::getRaiz()
 {

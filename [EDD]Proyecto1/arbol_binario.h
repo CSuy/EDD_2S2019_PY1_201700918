@@ -23,6 +23,7 @@ class Arbol_Binario
         void leer_archivos(std::string archivo, std::string nombre_imagen);
         void lectura_config(std::string carpeta,std::string archivo);
         void lectura_capas(Lista_Matriz *lista,std::string carpeta, std::string archivo, std::string capa);
+        void graficar_matriz(std::string nombre_imagen);
         int id;
         int alto__i;
         int ancho__i;

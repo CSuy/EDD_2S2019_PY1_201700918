@@ -72,6 +72,7 @@ int main()
         case 6:
             system("cls");
             printf("Aqui creamos reportes");
+            arbol->graficar_matriz(imagen_en_proceso);
             getwchar();
             getwchar();
             break;

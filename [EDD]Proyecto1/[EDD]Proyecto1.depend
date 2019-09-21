@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1569081102 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
+1569104644 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
 	"arbol_binario.h"
 	"lista_matriz.h"
 	"nodo.h"
@@ -10,7 +10,7 @@
 	<sstream>
 	<stdlib.h>
 
-1569075318 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.h
+1569103986 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.h
 	"nodo_arbol.h"
 	"nodo.h"
 	"lista_matriz.h"
@@ -27,8 +27,11 @@
 1567889028 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo.h
 	<string>
 
-1568762327 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.h
+1569104436 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.h
 	"nodo.h"
+	<fstream>
+	<iostream>
+	<string.h>
 
 1568830046 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\generador_html.h
 	"nodo.h"
@@ -52,12 +55,13 @@
 1568406405 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_circular.h
 	<string>
 
-1569076966 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.cpp
+1569106654 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_matriz.cpp
 	"lista_matriz.h"
 	<iostream>
+	<fstream>
 	<string>
 
-1569074983 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
+1569104669 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
 	<iostream>
 	<string>
 	<string.h>
@@ -80,7 +84,7 @@
 1568406430 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_circular.cpp
 	"nodo_circular.h"
 
-1569091165 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\generador_html.cpp
+1569095068 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\generador_html.cpp
 	"generador_html.h"
 	<fstream>
 	<iostream>
