@@ -24,6 +24,9 @@ class Arbol_Binario
         void lectura_config(std::string carpeta,std::string archivo);
         void lectura_capas(Lista_Matriz *lista,std::string carpeta, std::string archivo, std::string capa);
         void graficar_matriz(std::string nombre_imagen);
+        Nodo *Buscar(std::string nombre_imagen, int filtro);
+        void matriz_auxiliar1(Nodo *&raiz, std::string nombre_imagen);
+        void graficar_matriz_filtro(Nodo *&raiz, std::string nombre_imagen);
         int id;
         int alto__i;
         int ancho__i;
@@ -35,7 +38,7 @@ class Arbol_Binario
         virtual ~Arbol_Binario();
 
     protected:
-        
+
 
     private:
         Nodo_Arbol *Raiz;

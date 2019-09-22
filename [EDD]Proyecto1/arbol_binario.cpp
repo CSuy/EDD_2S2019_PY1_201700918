@@ -270,10 +270,10 @@ void Arbol_Binario::lectura_config(std::string carpeta,std::string archivo)
                 }else if (nombre_especificacion=="pixel_height"){
                     this->alto__p=tamanio;
                 }
-                cout << tamanio << " " << nombre_especificacion << endl; 
+                cout << tamanio << " " << nombre_especificacion << endl;
             }
             prueba=true;
-        }              
+        }
     }catch(exception){
         cout << "se produjo un error al leer el archivo .csv" << endl;
     }
@@ -339,7 +339,7 @@ void Arbol_Binario::matriz_auxiliar(std::string nombre_imagen)
         }else{
             cout << "no se encontro el nodo" << endl;
         }
-        
+
     }catch(exception){
         cout << "aqui en matrix auxiliar hubo error" << endl;
     }
@@ -362,7 +362,196 @@ void Arbol_Binario::graficar_matriz(std::string nombre_imagen)
         }else{
             cout << "no se encontro el nodo" << endl;
         }
-        
+
+    }catch(exception){
+        cout << "aqui en matrix auxiliar hubo error" << endl;
+    }
+}
+
+void Arbol_Binario::graficar_matriz_filtro(Nodo *&raiz, std::string nombre_imagen)
+{
+    try{
+        Nodo_Arbol *aux=buscar(this->Raiz,nombre_imagen);
+        Lista_Matriz *nuevo_1;
+        generador_html *nuevo;
+        if(aux!=0){
+            cout << "no hubo problema xD " << aux->Nombre_imagen << endl;
+            Nodo *&copia=raiz;
+            std::string ruta="CSV/";
+            ruta+=aux->Nombre_imagen;
+            ruta+="/";
+            nuevo_1->Graficar(copia,ruta);
+        }else{
+            cout << "no se encontro el nodo" << endl;
+        }
+
+    }catch(exception){
+        cout << "aqui en matrix auxiliar hubo error" << endl;
+    }
+}
+
+Nodo* Arbol_Binario::Buscar(std::string nombre_imagen, int filtros)
+{
+    try{
+        int r,g=1,b, g2, r_gris;
+        double r2;
+        std::string r1,g1,b1, color1;
+        Arbol_Binario *a = new Arbol_Binario();
+        Nodo_Arbol *aux4=buscar(this->Raiz,nombre_imagen);
+        Lista_Matriz *copia = new Lista_Matriz();
+        a->Raiz=aux4;
+        Nodo *aux3=a->Raiz->matriz;
+        Nodo *aux;
+        Nodo *aux1;
+        Nodo *filtro;
+        Nodo *raiz_p;
+        int x=1, y=0;
+        if(filtros==1){
+            while(aux3!=0){
+                raiz_p=copia->crear_raiz(aux3->Color);
+                aux=aux3->abajo;
+                while(aux!=0){
+                    aux1=aux->siguiente;
+                    while(aux1!=0){
+                        if(aux1->posY==y){
+                            for(int p=0;p<aux4->ancho_imagen;){
+                                if(aux1!=0){
+                                    if(p==aux1->posX){
+                                        std::string color =aux1->Color;
+                                        int j = color.size() + 1;
+                                        char prueba[j];
+                                        strcpy(prueba,color.c_str());
+                                        for(int i=0; i<j;i++){
+                                            if(prueba[i]=='-'){
+                                                b=std::stoi(r1);
+                                                if(b>=255){
+                                                    r=0;
+                                                }else{
+                                                    r=255-b;
+                                                }
+                                                color1+=std::to_string(r);
+                                                color1+=prueba[i];
+                                                r1="";
+                                            }else{
+                                                r1+=prueba[i];
+                                            }
+                                        }
+                                        r=255-std::stoi(r1);
+                                        if(r<0){
+                                            r=0;
+                                        }
+                                        color1+=std::to_string(r);
+                                        copia->insertar_elemento(aux1->posX,aux1->posY,color1,raiz_p);
+                                        aux1=aux1->siguiente;
+                                        color1="";
+                                        r1="";
+                                        x=x+1;
+                                    }else{
+                                        x=x+1;
+                                    }
+                                }else{
+                                    x=x+1;
+                                }
+                                p=p+1;
+                            }
+                        }else{
+                            y++;
+                            x=x+aux4->ancho_imagen;
+                        }
+                    }
+                    aux=aux->abajo;
+                    y++;
+                }
+                aux3=aux3->adelante;
+                y=0;
+                x=1;
+            }
+            filtro=copia->cabeza;
+        }else if(filtros==2){
+            while(aux3!=0){
+                raiz_p=copia->crear_raiz(aux3->Color);
+                aux=aux3->abajo;
+                while(aux!=0){
+                    aux1=aux->siguiente;
+                    while(aux1!=0){
+                        if(aux1->posY==y){
+                            for(int p=0;p<aux4->ancho_imagen;){
+                                if(aux1!=0){
+                                    if(p==aux1->posX){
+                                        std::string color =aux1->Color;
+                                        int j = color.size() + 1;
+                                        char prueba[j];
+                                        strcpy(prueba,color.c_str());
+                                        for(int i=0; i<j;i++){
+                                            if(prueba[i]=='-' && g==1){
+                                                r=std::stoi(r1);
+                                                r1="";
+                                                g++;
+                                            }else if(prueba[i]=='-' && g==2){
+                                                g2=std::stoi(r1);
+                                                r1="";
+                                            }else{
+                                                r1+=prueba[i];
+                                            }
+                                        }
+                                        b=std::stoi(r1);
+                                        r2=r*0.3+g2*0.59+b*0.11;
+                                        if(r2<0){
+                                            r2=0;
+                                        }
+                                        r_gris=(int) r2;
+                                        color1=std::to_string(r_gris);
+                                        color1+="-";
+                                        color1+=std::to_string(r_gris);
+                                        color1+="-";
+                                        color1+=std::to_string(r_gris);
+                                        copia->insertar_elemento(aux1->posX,aux1->posY,color1,raiz_p);
+                                        aux1=aux1->siguiente;
+                                        color1="";
+                                        r1="";
+                                        x=x+1;
+                                    }else{
+                                        x=x+1;
+                                    }
+                                }else{
+                                    x=x+1;
+                                }
+                                p=p+1;
+                            }
+                        }else{
+                            y++;
+                            x=x+aux4->ancho_imagen;
+                        }
+                    }
+                    aux=aux->abajo;
+                    y++;
+                }
+                aux3=aux3->adelante;
+                y=0;
+                x=1;
+            }
+            filtro=copia->cabeza;
+        }
+        return filtro;
+    }catch(exception){
+
+    }
+    return 0;
+}
+
+void Arbol_Binario::matriz_auxiliar1(Nodo *&raiz, std::string nombre_imagen)
+{
+    try{
+        Nodo_Arbol *aux=buscar(this->Raiz,nombre_imagen);
+        generador_html *nuevo;
+        if(aux!=0){
+            cout << "no hubo problema xD " << aux->Nombre_imagen << endl;
+            Nodo *&copia=raiz;
+            nuevo->generar_css(aux,copia);
+        }else{
+            cout << "no se encontro el nodo" << endl;
+        }
+
     }catch(exception){
         cout << "aqui en matrix auxiliar hubo error" << endl;
     }

@@ -8,6 +8,7 @@
 #include "lista_matriz.h"
 #include "arbol_binario.h"
 #include "generador_html.h"
+#include "nodo.h"
 
 using namespace std;
 
@@ -17,7 +18,15 @@ void filtros();
 void imagen_cargadas();
 void exportar_imagen();
 std::string imagen_en_proceso;
+int filtro_a;
 Arbol_Binario *arbol = new Arbol_Binario();
+Nodo *Matriz_filtro1;
+Nodo *Matriz_filtro2;
+Nodo *Matriz_filtro3;
+Nodo *Matriz_filtro4;
+Nodo *Matriz_filtro5;
+Nodo *Matriz_filtro6;
+Nodo *Matriz_filtro7;
 
 
 int main()
@@ -162,7 +171,25 @@ void filtros()
     switch (eleccion2)
     {
     case 1:
-        
+        if(eleccion==1){
+            Matriz_filtro1=arbol->Buscar(imagen_en_proceso,1);
+            arbol->graficar_matriz_filtro(Matriz_filtro1,imagen_en_proceso);
+            arbol->matriz_auxiliar1(Matriz_filtro1,imagen_en_proceso);
+        }else if(eleccion == 2){
+            Matriz_filtro2=arbol->Buscar(imagen_en_proceso,2);
+            arbol->graficar_matriz_filtro(Matriz_filtro2,imagen_en_proceso);
+            arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
+        }else if(eleccion == 3){
+            
+        }else if(eleccion == 4){
+            
+        }else if(eleccion == 5){
+            
+        }else if(eleccion == 6){
+            
+        }else if(eleccion == 7){
+            
+        }
         cout << "Filtro Aplicado" << endl;
         break;
     case 2:
