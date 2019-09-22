@@ -9,6 +9,7 @@
 #include "arbol_binario.h"
 #include "generador_html.h"
 #include "nodo.h"
+#include "lista_circular.h"
 
 using namespace std;
 
@@ -23,9 +24,12 @@ void IMAGE_LAYER_REPORT();
 void LINEAR_MATRIX_REPORT();
 void TRAVERSAL_REPORT();
 void FILTERS_REPORT();
+void todos_reportes();
+void reportes_filtros();
 std::string imagen_en_proceso;
 int filtro_a;
 Arbol_Binario *arbol = new Arbol_Binario();
+Lista_Circular *lista = new Lista_Circular();
 Nodo *Matriz_filtro1;
 Nodo *Matriz_filtro2;
 Nodo *Matriz_filtro3;
@@ -179,24 +183,24 @@ void filtros()
     {
     case 1:
         if(eleccion==1){
+            lista->insertar("Todas","Negativo");
             Matriz_filtro1=arbol->Buscar(imagen_en_proceso,1);
-            arbol->graficar_matriz_filtro(Matriz_filtro1,imagen_en_proceso);
-            arbol->matriz_auxiliar1(Matriz_filtro1,imagen_en_proceso);
         }else if(eleccion == 2){
+            lista->insertar("Todas","Escala de Grises");
             Matriz_filtro2=arbol->Buscar(imagen_en_proceso,2);
-            arbol->graficar_matriz_filtro(Matriz_filtro2,imagen_en_proceso);
             arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
         }else if(eleccion == 3){
-            Matriz_filtro3=arbol->Buscar(imagen_en_proceso,3);
-            arbol->graficar_matriz_filtro(Matriz_filtro3,imagen_en_proceso);
-            arbol->matriz_auxiliar1(Matriz_filtro3,imagen_en_proceso);
+            lista->insertar("Todas","Espejo en eje X");
         }else if(eleccion == 4){
-            
+            lista->insertar("Todas","Espejo en eje Y");
         }else if(eleccion == 5){
+            lista->insertar("Todas","Espejo en ambos ejes");
             
         }else if(eleccion == 6){
+            lista->insertar("Todas","Collage");
             
         }else if(eleccion == 7){
+            lista->insertar("Todas","Mosaico");
             
         }
         cout << "Filtro Aplicado" << endl;
@@ -218,11 +222,26 @@ void imagen_cargadas()
     cin >> img;
     imagen_en_proceso=img;
     cout << "Usted Selecciono: " << imagen_en_proceso << endl;
+    lista->borrar();
 }
 
 void exportar_imagen()
 {
-    arbol->matriz_auxiliar(imagen_en_proceso);
+    std::string opcion;
+    cout << "desea Exportar la imagen original o con filtro" << endl;
+    cout << "Si desea importar con filtro, escriba que filtro desea exportar" << endl;
+    cin >> opcion;
+    if(opcion=="Original"){
+        arbol->matriz_auxiliar(imagen_en_proceso);
+    }else{
+        if(opcion=="Negativo"){
+            arbol->matriz_auxiliar1(Matriz_filtro1,imagen_en_proceso);
+        }else if(opcion=="Escala de Grises"){
+            arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
+        }
+    }
+
+    
 }
 
 void reportes(){
@@ -238,14 +257,16 @@ void reportes(){
     switch (opcion)
     {
     case 1:
-        arbol->Grafica_arbol();
-        arbol->Grafica_preorden();
-        arbol->Grafica_posorden();
-        arbol->Grafica_inorden();
-        cout << "Reporte generado" << endl;
+        system("cls");
+        todos_reportes();
+        getwchar();
+        getwchar();
         break;
     case 2:
-        /* code */
+        system("cls");
+        IMAGE_LAYER_REPORT();
+        getwchar();
+        getwchar();
         break;
     case 3:
         /* code */
@@ -254,7 +275,10 @@ void reportes(){
         /* code */
         break;
     case 5:
-        /* code */
+        system("cls");
+        reportes_filtros();
+        getwchar();
+        getwchar();
         break;
     }
 }
@@ -262,4 +286,80 @@ void reportes(){
 void IMPORTED_IMAGES_REPORT()
 {
 
+}
+void reportes_filtros(){
+    int opcion;
+    cout << "---------- Reportes ----------" << endl;
+    cout << "1. Lista Circular" << endl;
+    cout << "2. Lista de Filtros" << endl;
+    cin >> opcion ;
+    switch (opcion)
+    {
+    case 1:
+        lista->graficar();
+        break;
+    case 2:
+        lista->mostrar();
+        std::string eleccion2;
+        cout << "A cual filtro desea reportar" << endl;
+        cin >> eleccion2;
+        if(eleccion2=="Negativo"){
+            arbol->graficar_matriz_filtro(Matriz_filtro1,imagen_en_proceso);
+            arbol->matriz_auxiliar1(Matriz_filtro1,imagen_en_proceso);
+        }else if(eleccion2=="Escala de Grises"){
+            arbol->graficar_matriz_filtro(Matriz_filtro2,imagen_en_proceso);
+            arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
+        }else if(eleccion2=="A"){
+            Matriz_filtro3=arbol->Buscar(imagen_en_proceso,3);
+            arbol->graficar_matriz_filtro(Matriz_filtro3,imagen_en_proceso);
+            arbol->matriz_auxiliar1(Matriz_filtro3,imagen_en_proceso);
+        }
+        break;
+
+    }
+}
+
+void todos_reportes(){
+    int opcion;
+    cout << "---------- Reportes ----------" << endl;
+    cout << "1. Arbol completo" << endl;
+    cout << "2. Recorrido Preorden" << endl;
+    cout << "3. Recorrido PosOrden " << endl;
+    cout << "4. Recorrido InOrden " << endl;
+    cout << "Cual reporte desea ver?" << endl;
+    cin >> opcion;
+    switch (opcion)
+    {
+    case 1:
+        arbol->Grafica_arbol();
+        cout << "Reporte generado" << endl;
+        break;
+    case 2:
+        arbol->Grafica_preorden();
+        cout << "Reporte generado" << endl;
+        break;
+    case 3:
+        arbol->Grafica_posorden();
+        cout << "Reporte generado" << endl;
+        break;
+    case 4:
+        arbol->Grafica_inorden();
+        cout << "Reporte generado" << endl;
+        break;
+    }
+
+}
+
+void IMAGE_LAYER_REPORT()
+{
+    std::string img;
+    cout << "---------- Imagenes Cargadas ----------" << endl;
+    cout << "Imagenes Disponibles" << endl;
+    arbol->mostrar_lista(arbol->getRaiz());
+    cout << "Escriba el nombre de la imagen que desea realizar reporte" << endl;
+    cin >> img;
+    imagen_en_proceso=img;
+    cout << "Usted Selecciono: " << imagen_en_proceso << endl;
+    arbol->graficar_matriz(imagen_en_proceso);
+    cout << "Reporte generado" << endl;
 }

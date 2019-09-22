@@ -39,12 +39,22 @@
 	<iostream>
 	<string.h>
 
-1568408627 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_circular.cpp
+1569130790 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_circular.cpp
 	"lista_circular.h"
+	<cstring>
+	<iostream>
+	<fstream>
+	<sstream>
+	<stdlib.h>
 
-1568407059 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_circular.h
+1569130366 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_circular.h
 	<string>
 	"nodo_circular.h"
+	<iostream>
+	<cstring>
+	<fstream>
+	<sstream>
+	<stdlib.h>
 
 1568406405 c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_circular.h
 	<string>
@@ -66,7 +76,7 @@
 1568406430 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_circular.cpp
 	"nodo_circular.h"
 
-1569126240 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
+1569130887 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
 	<iostream>
 	<string>
 	<string.h>
@@ -78,8 +88,9 @@
 	"arbol_binario.h"
 	"generador_html.h"
 	"nodo.h"
+	"lista_circular.h"
 
-1569125442 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
+1569126367 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
 	"arbol_binario.h"
 	"lista_matriz.h"
 	"nodo.h"
