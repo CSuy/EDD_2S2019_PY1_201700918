@@ -17,6 +17,12 @@ void comparar();
 void filtros();
 void imagen_cargadas();
 void exportar_imagen();
+void reportes();
+void IMPORTED_IMAGES_REPORT();
+void IMAGE_LAYER_REPORT();
+void LINEAR_MATRIX_REPORT();
+void TRAVERSAL_REPORT();
+void FILTERS_REPORT();
 std::string imagen_en_proceso;
 int filtro_a;
 Arbol_Binario *arbol = new Arbol_Binario();
@@ -81,7 +87,8 @@ int main()
         case 6:
             system("cls");
             printf("Aqui creamos reportes");
-            arbol->graficar_matriz(imagen_en_proceso);
+            //arbol->graficar_matriz(imagen_en_proceso);
+            reportes();
             getwchar();
             getwchar();
             break;
@@ -180,7 +187,9 @@ void filtros()
             arbol->graficar_matriz_filtro(Matriz_filtro2,imagen_en_proceso);
             arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
         }else if(eleccion == 3){
-            
+            Matriz_filtro3=arbol->Buscar(imagen_en_proceso,3);
+            arbol->graficar_matriz_filtro(Matriz_filtro3,imagen_en_proceso);
+            arbol->matriz_auxiliar1(Matriz_filtro3,imagen_en_proceso);
         }else if(eleccion == 4){
             
         }else if(eleccion == 5){
@@ -214,4 +223,43 @@ void imagen_cargadas()
 void exportar_imagen()
 {
     arbol->matriz_auxiliar(imagen_en_proceso);
+}
+
+void reportes(){
+    int opcion;
+    cout << "---------- Reportes ----------" << endl;
+    cout << "1. IMPORTED IMAGES REPORT" << endl;
+    cout << "2. IMAGE LAYER REPORt" << endl;
+    cout << "3. LINEAR MATRIX REPORT " << endl;
+    cout << "4. TRAVERSAL REPORT " << endl;
+    cout << "5. FILTERS REPORT " << endl;
+    cout << "Cual reporte desea realizar?" << endl;
+    cin >> opcion;
+    switch (opcion)
+    {
+    case 1:
+        arbol->Grafica_arbol();
+        arbol->Grafica_preorden();
+        arbol->Grafica_posorden();
+        arbol->Grafica_inorden();
+        cout << "Reporte generado" << endl;
+        break;
+    case 2:
+        /* code */
+        break;
+    case 3:
+        /* code */
+        break;
+    case 4:
+        /* code */
+        break;
+    case 5:
+        /* code */
+        break;
+    }
+}
+
+void IMPORTED_IMAGES_REPORT()
+{
+
 }

@@ -48,16 +48,26 @@ void Arbol_Binario::insertar(std::string nombre, int alto_i, int ancho_i, int al
 
 std::string Arbol_Binario::inorden(Nodo_Arbol *&raiz)
 {
-    std::string cuerpo;
+    std::string cuerpo="";
     if(raiz!=0){
-        inorden(raiz->izquierdo);
-        cuerpo="\"";
-        cuerpo+=raiz->Nombre_imagen;
-        cuerpo+=", \n";
-        //cuerpo+=raiz->Caracteristicas;
-        cuerpo+="\"";
-        cuerpo+=" -> \n";
-        inorden(raiz->derecho);
+        if(raiz->izquierdo!=0){
+                cuerpo+=preorden(raiz->izquierdo);
+                cuerpo+=" -> ";
+            }
+            cuerpo+="\n \"";
+            cuerpo+= raiz->Nombre_imagen;
+            cuerpo+="\n Imagen: ";
+            cuerpo+= std::to_string(raiz->ancho_imagen);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_imagen);
+            cuerpo+="\n Pixel: ";
+            cuerpo+= std::to_string(raiz->ancho_pixel);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_pixel);
+            cuerpo+= "px \" ->";
+            if(raiz->derecho!=0){
+                cuerpo+=preorden(raiz->derecho);
+            }
     }
     return cuerpo;
 }
@@ -69,7 +79,7 @@ void Arbol_Binario::Grafica_inorden()
     if (archivo.fail()){
         cout << "se produjo un error al generar el recorrido inorden" << endl;
     }else{
-        archivo<<"digraph inorden{\n rankdir=LR;\n node [shape = circle, style=filled, fillcolor=seashell2];"<<inorden(this->Raiz)<<" \n}";
+        archivo<<"digraph inorden{\n rankdir=LR;\n node [shape = circle, style=filled, fillcolor=seashell2];"<<inorden(this->Raiz)<<"; \n}";
         archivo.close();
     }
     try{
@@ -83,14 +93,25 @@ std::string Arbol_Binario::posorden(Nodo_Arbol *&raiz)
 {
     std::string cuerpo;
     if(raiz!=0){
-        posorden(raiz->izquierdo);
-        posorden(raiz->derecho);
-        cuerpo="\"";
-        cuerpo+=raiz->Nombre_imagen;
-        cuerpo+=", \n";
-        //cuerpo+=raiz->Caracteristicas;
-        cuerpo+="\"";
-        cuerpo+=" -> \n";
+        if(raiz->izquierdo!=0){
+            cuerpo+=preorden(raiz->izquierdo);
+            cuerpo+=" -> ";
+        }
+        if(raiz->derecho!=0){
+            cuerpo+=preorden(raiz->derecho);
+            cuerpo+=" -> ";
+        }
+        cuerpo+="\n \"";
+        cuerpo+= raiz->Nombre_imagen;
+        cuerpo+="\n Imagen: ";
+        cuerpo+= std::to_string(raiz->ancho_imagen);
+        cuerpo+= "X";
+        cuerpo+= std::to_string(raiz->alto_imagen);
+        cuerpo+="\n Pixel: ";
+        cuerpo+= std::to_string(raiz->ancho_pixel);
+        cuerpo+= "X";
+        cuerpo+= std::to_string(raiz->alto_pixel);
+        cuerpo+= "px \"";
     }
     return cuerpo;
 }
@@ -98,15 +119,15 @@ std::string Arbol_Binario::posorden(Nodo_Arbol *&raiz)
 void Arbol_Binario::Grafica_posorden()
 {
     ofstream archivo;
-    archivo.open("Recorrido_inorden.dot",ios::out);
+    archivo.open("Recorrido_posorden.dot",ios::out);
     if (archivo.fail()){
         cout << "se produjo un error al generar el recorrido inorden" << endl;
     }else{
-        archivo<<"digraph inorden{\n rankdir=LR;\n node [shape = circle, style=filled, fillcolor=seashell2];"<<posorden(this->Raiz)<<" \n}";
+        archivo<<"digraph inorden{\n rankdir=LR;\n node [shape = circle, style=filled, fillcolor=seashell2];"<<posorden(this->Raiz)<<"; \n}";
         archivo.close();
     }
     try{
-        system("dot -Tjpg Recorrido_inorden.dot -o busqueda_inorden.jpg");
+        system("dot -Tjpg Recorrido_posorden.dot -o busqueda_posorden.jpg");
     }catch(exception e){
         cout << "Se produjo un error al correr el .dot" << endl;
     }
@@ -114,16 +135,27 @@ void Arbol_Binario::Grafica_posorden()
 
 std::string Arbol_Binario::preorden(Nodo_Arbol *&raiz)
 {
-    std::string cuerpo;
+    std::string cuerpo="";
     if(raiz!=0){
-        cuerpo="\"";
-        cuerpo+=raiz->Nombre_imagen;
-        cuerpo+=", \n";
-        //cuerpo+=raiz->Caracteristicas;
-        cuerpo+="\"";
-        cuerpo+=" -> \n";
-        preorden(raiz->izquierdo);
-        preorden(raiz->derecho);
+        cuerpo+="\n \"";
+            cuerpo+= raiz->Nombre_imagen;
+            cuerpo+="\n Imagen: ";
+            cuerpo+= std::to_string(raiz->ancho_imagen);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_imagen);
+            cuerpo+="\n Pixel: ";
+            cuerpo+= std::to_string(raiz->ancho_pixel);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_pixel);
+            cuerpo+= "px \"";
+            if(raiz->izquierdo!=0){
+                cuerpo+=" -> ";
+                cuerpo+=preorden(raiz->izquierdo);
+            }
+            if(raiz->derecho!=0){
+                cuerpo+=" -> ";
+                cuerpo+=preorden(raiz->derecho);
+            }
     }
     return cuerpo;
 }
@@ -131,15 +163,15 @@ std::string Arbol_Binario::preorden(Nodo_Arbol *&raiz)
 void Arbol_Binario::Grafica_preorden()
 {
     ofstream archivo;
-    archivo.open("Recorrido_inorden.dot",ios::out);
+    archivo.open("Recorrido_preorden.dot",ios::out);
     if (archivo.fail()){
         cout << "se produjo un error al generar el recorrido inorden" << endl;
     }else{
-        archivo<<"digraph inorden{\n rankdir=LR;\n node [shape = circle, style=filled, fillcolor=seashell2];"<<preorden(this->Raiz)<<" \n}";
+        archivo<<"digraph inorden{\n rankdir=LR;\n node [shape = circle, style=filled, fillcolor=seashell2];"<<preorden(this->Raiz)<<"; \n}";
         archivo.close();
     }
     try{
-        system("dot -Tjpg Recorrido_inorden.dot -o busqueda_inorden.jpg");
+        system("dot -Tjpg Recorrido_preorden.dot -o busqueda_preorden.jpg");
     }catch(exception e){
         cout << "Se produjo un error al correr el .dot" << endl;
     }
@@ -554,6 +586,80 @@ void Arbol_Binario::matriz_auxiliar1(Nodo *&raiz, std::string nombre_imagen)
 
     }catch(exception){
         cout << "aqui en matrix auxiliar hubo error" << endl;
+    }
+}
+
+std::string Arbol_Binario::g_arbol(Nodo_Arbol *&raiz, int id)
+{
+    std::string cuerpo="";
+    int id1=id;
+    if(raiz!=0){
+            cuerpo+="\n \"";
+            cuerpo+= raiz->Nombre_imagen;
+            cuerpo+="\n Imagen: ";
+            cuerpo+= std::to_string(raiz->ancho_imagen);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_imagen);
+            cuerpo+="\n Pixel: ";
+            cuerpo+= std::to_string(raiz->ancho_pixel);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_pixel);
+            cuerpo+= "px ";
+            cuerpo+="\" ;";
+            id1++;
+        if(raiz->izquierdo!=0){
+            cuerpo+="\n \"";
+            cuerpo+= raiz->Nombre_imagen;
+            cuerpo+="\n Imagen: ";
+            cuerpo+= std::to_string(raiz->ancho_imagen);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_imagen);
+            cuerpo+="\n Pixel: ";
+            cuerpo+= std::to_string(raiz->ancho_pixel);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_pixel);
+            cuerpo+= "px ";
+            cuerpo+="\" ";
+            id1++;
+            cuerpo+= " -> \n";
+            cuerpo+=g_arbol(raiz->izquierdo,id1);
+        }
+        if(raiz->derecho!=0){
+            cuerpo+="\n \"";
+            cuerpo+= raiz->Nombre_imagen;
+            cuerpo+="\n Imagen: ";
+            cuerpo+= std::to_string(raiz->ancho_imagen);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_imagen);
+            cuerpo+="\n Pixel: ";
+            cuerpo+= std::to_string(raiz->ancho_pixel);
+            cuerpo+= "X";
+            cuerpo+= std::to_string(raiz->alto_pixel);
+            cuerpo+= "px ";
+            cuerpo+="\" ";
+            id1++;
+            cuerpo+= " -> \n";
+            cuerpo+=g_arbol(raiz->derecho,id1);
+        }
+    }
+    return cuerpo;
+}
+
+void Arbol_Binario::Grafica_arbol()
+{
+    ofstream archivo;
+    int x=1;
+    archivo.open("Arbol.dot",ios::out);
+    if (archivo.fail()){
+        cout << "se produjo un error al generar el recorrido inorden" << endl;
+    }else{
+        archivo<<"digraph inorden{ \n node [shape = circle, style=filled, fillcolor=seashell2];"<< g_arbol(this->Raiz,x) <<" \n}";
+        archivo.close();
+    }
+    try{
+        system("dot -Tjpg Arbol.dot -o Arbol_ABB.jpg");
+    }catch(exception e){
+        cout << "Se produjo un error al correr el .dot" << endl;
     }
 }
 

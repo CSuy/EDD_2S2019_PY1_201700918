@@ -18,6 +18,7 @@ class Arbol_Binario
         void Grafica_inorden();
         void Grafica_preorden();
         void Grafica_posorden();
+        void Grafica_arbol();
         void mostrar_lista(Nodo_Arbol *raices);
         void matriz_auxiliar(std::string nombre_imagen);
         void leer_archivos(std::string archivo, std::string nombre_imagen);
@@ -46,6 +47,7 @@ class Arbol_Binario
         std::string inorden(Nodo_Arbol *&raiz);
         std::string preorden(Nodo_Arbol *&raiz);
         std::string posorden(Nodo_Arbol *&raiz);
+        std::string g_arbol(Nodo_Arbol *&raiz, int id);
         Nodo_Arbol *buscar(Nodo_Arbol *&raiz,std::string nombre_imagen);
         std::string mostrar_lista1(Nodo_Arbol *raiz);
 };
