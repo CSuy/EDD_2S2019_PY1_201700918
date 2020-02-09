@@ -29,24 +29,24 @@ nodo140[label="C13" ,group=14];
 } 
 {rank=same; 
 nodo010[label="F9" ,group=0]; 
-nodo810[label="25-117-255" ,group=8]; 
-nodo910[label="25-117-255" ,group=9]; 
-nodo1010[label="25-117-255" ,group=10]; 
-nodo1110[label="25-117-255" ,group=11]; 
+nodo810[label="230-138-0" ,group=8]; 
+nodo910[label="230-138-0" ,group=9]; 
+nodo1010[label="230-138-0" ,group=10]; 
+nodo1110[label="230-138-0" ,group=11]; 
 } 
 {rank=same; 
 nodo011[label="F10" ,group=0]; 
-nodo911[label="25-117-255" ,group=9]; 
-nodo1011[label="25-117-255" ,group=10]; 
+nodo911[label="230-138-0" ,group=9]; 
+nodo1011[label="230-138-0" ,group=10]; 
 } 
 {rank=same; 
 nodo016[label="F15" ,group=0]; 
-nodo516[label="25-117-255" ,group=5]; 
-nodo616[label="25-117-255" ,group=6]; 
-nodo716[label="25-117-255" ,group=7]; 
-nodo1216[label="25-117-255" ,group=12]; 
-nodo1316[label="25-117-255" ,group=13]; 
-nodo1416[label="25-117-255" ,group=14]; 
+nodo516[label="230-138-0" ,group=5]; 
+nodo616[label="230-138-0" ,group=6]; 
+nodo716[label="230-138-0" ,group=7]; 
+nodo1216[label="230-138-0" ,group=12]; 
+nodo1316[label="230-138-0" ,group=13]; 
+nodo1416[label="230-138-0" ,group=14]; 
 } 
 nodo00 -> nodo50 [dir=both];
 nodo50 -> nodo60 [dir=both];

@@ -39,7 +39,7 @@
 	<iostream>
 	<string.h>
 
-1569130790 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_circular.cpp
+1570556981 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\lista_circular.cpp
 	"lista_circular.h"
 	<cstring>
 	<iostream>
@@ -76,7 +76,7 @@
 1568406430 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\nodo_circular.cpp
 	"nodo_circular.h"
 
-1569130887 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
+1570555452 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\main.cpp
 	<iostream>
 	<string>
 	<string.h>
@@ -90,7 +90,7 @@
 	"nodo.h"
 	"lista_circular.h"
 
-1569126367 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
+1570555181 source:c:\users\miriamleticia\desktop\codigos\edd_proyecto1\[edd]proyecto1\arbol_binario.cpp
 	"arbol_binario.h"
 	"lista_matriz.h"
 	"nodo.h"

@@ -30,13 +30,13 @@ std::string imagen_en_proceso;
 int filtro_a;
 Arbol_Binario *arbol = new Arbol_Binario();
 Lista_Circular *lista = new Lista_Circular();
-Nodo *Matriz_filtro1;
-Nodo *Matriz_filtro2;
-Nodo *Matriz_filtro3;
-Nodo *Matriz_filtro4;
-Nodo *Matriz_filtro5;
-Nodo *Matriz_filtro6;
-Nodo *Matriz_filtro7;
+Nodo *Matriz_filtro1 = 0;
+Nodo *Matriz_filtro2 = 0;
+Nodo *Matriz_filtro3 = 0;
+Nodo *Matriz_filtro4 = 0;
+Nodo *Matriz_filtro5 = 0;
+Nodo *Matriz_filtro6 = 0;
+Nodo *Matriz_filtro7 = 0;
 
 
 int main()
@@ -90,7 +90,7 @@ int main()
             break;
         case 6:
             system("cls");
-            printf("Aqui creamos reportes");
+            printf("Aqui creamos reporte");
             //arbol->graficar_matriz(imagen_en_proceso);
             reportes();
             getwchar();
@@ -155,7 +155,7 @@ void comparar()
             x++;
         }
     }
-    
+
 
 }
 
@@ -188,25 +188,26 @@ void filtros()
         }else if(eleccion == 2){
             lista->insertar("Todas","Escala de Grises");
             Matriz_filtro2=arbol->Buscar(imagen_en_proceso,2);
-            arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
         }else if(eleccion == 3){
             lista->insertar("Todas","Espejo en eje X");
+            Matriz_filtro3=arbol->Buscar(imagen_en_proceso,3);
         }else if(eleccion == 4){
             lista->insertar("Todas","Espejo en eje Y");
+            Matriz_filtro4=arbol->Buscar(imagen_en_proceso,4);
         }else if(eleccion == 5){
             lista->insertar("Todas","Espejo en ambos ejes");
-            
+            Matriz_filtro5=arbol->Buscar(imagen_en_proceso,5);
         }else if(eleccion == 6){
             lista->insertar("Todas","Collage");
-            
+
         }else if(eleccion == 7){
             lista->insertar("Todas","Mosaico");
-            
+
         }
         cout << "Filtro Aplicado" << endl;
         break;
     case 2:
-        
+
         cout << "Filtro Aplicado" << endl;
         break;
     }
@@ -229,19 +230,22 @@ void exportar_imagen()
 {
     std::string opcion;
     cout << "desea Exportar la imagen original o con filtro" << endl;
-    cout << "Si desea importar con filtro, escriba que filtro desea exportar" << endl;
+    cout << "Si desea importar con filtro, escriba que filtro desea exportar." << endl;
+    lista->mostrar();
     cin >> opcion;
     if(opcion=="Original"){
         arbol->matriz_auxiliar(imagen_en_proceso);
-    }else{
-        if(opcion=="Negativo"){
-            arbol->matriz_auxiliar1(Matriz_filtro1,imagen_en_proceso);
-        }else if(opcion=="Escala de Grises"){
-            arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
-        }
+    }else if(opcion == "Negativo"){
+        arbol->matriz_auxiliar1(Matriz_filtro1,imagen_en_proceso);
+    }else if(opcion == "Grises"){
+        arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
+    }else if(opcion == "X"){
+        arbol->matriz_auxiliar1(Matriz_filtro3,imagen_en_proceso);
+    }else if(opcion == "Y"){
+        arbol->matriz_auxiliar1(Matriz_filtro4,imagen_en_proceso);
+    }else if(opcion == "Ambos"){
+        arbol->matriz_auxiliar1(Matriz_filtro5,imagen_en_proceso);
     }
-
-    
 }
 
 void reportes(){
@@ -306,13 +310,18 @@ void reportes_filtros(){
         if(eleccion2=="Negativo"){
             arbol->graficar_matriz_filtro(Matriz_filtro1,imagen_en_proceso);
             arbol->matriz_auxiliar1(Matriz_filtro1,imagen_en_proceso);
-        }else if(eleccion2=="Escala de Grises"){
+        }else if(eleccion2=="Grises"){
             arbol->graficar_matriz_filtro(Matriz_filtro2,imagen_en_proceso);
             arbol->matriz_auxiliar1(Matriz_filtro2,imagen_en_proceso);
-        }else if(eleccion2=="A"){
-            Matriz_filtro3=arbol->Buscar(imagen_en_proceso,3);
+        }else if(eleccion2=="X"){
             arbol->graficar_matriz_filtro(Matriz_filtro3,imagen_en_proceso);
             arbol->matriz_auxiliar1(Matriz_filtro3,imagen_en_proceso);
+        }else if(eleccion2=="Y"){
+            arbol->graficar_matriz_filtro(Matriz_filtro4,imagen_en_proceso);
+            arbol->matriz_auxiliar1(Matriz_filtro4,imagen_en_proceso);
+        }else if(eleccion2=="Ambos"){
+            arbol->graficar_matriz_filtro(Matriz_filtro5,imagen_en_proceso);
+            arbol->matriz_auxiliar1(Matriz_filtro5,imagen_en_proceso);
         }
         break;
 

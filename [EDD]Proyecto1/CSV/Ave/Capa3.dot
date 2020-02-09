@@ -41,105 +41,105 @@ nodo170[label="C16" ,group=17];
 } 
 {rank=same; 
 nodo02[label="F1" ,group=0]; 
-nodo82[label="255-255-255" ,group=8]; 
-nodo92[label="255-255-255" ,group=9]; 
-nodo102[label="255-255-255" ,group=10]; 
-nodo112[label="255-255-255" ,group=11]; 
+nodo82[label="0-0-0" ,group=8]; 
+nodo92[label="0-0-0" ,group=9]; 
+nodo102[label="0-0-0" ,group=10]; 
+nodo112[label="0-0-0" ,group=11]; 
 } 
 {rank=same; 
 nodo03[label="F2" ,group=0]; 
-nodo63[label="255-255-255" ,group=6]; 
-nodo73[label="255-255-255" ,group=7]; 
-nodo123[label="255-255-255" ,group=12]; 
-nodo133[label="255-255-255" ,group=13]; 
+nodo63[label="0-0-0" ,group=6]; 
+nodo73[label="0-0-0" ,group=7]; 
+nodo123[label="0-0-0" ,group=12]; 
+nodo133[label="0-0-0" ,group=13]; 
 } 
 {rank=same; 
 nodo04[label="F3" ,group=0]; 
-nodo54[label="255-255-255" ,group=5]; 
-nodo144[label="255-255-255" ,group=14]; 
+nodo54[label="0-0-0" ,group=5]; 
+nodo144[label="0-0-0" ,group=14]; 
 } 
 {rank=same; 
 nodo05[label="F4" ,group=0]; 
-nodo45[label="255-255-255" ,group=4]; 
-nodo155[label="255-255-255" ,group=15]; 
+nodo45[label="0-0-0" ,group=4]; 
+nodo155[label="0-0-0" ,group=15]; 
 } 
 {rank=same; 
 nodo06[label="F5" ,group=0]; 
-nodo46[label="255-255-255" ,group=4]; 
-nodo156[label="255-255-255" ,group=15]; 
+nodo46[label="0-0-0" ,group=4]; 
+nodo156[label="0-0-0" ,group=15]; 
 } 
 {rank=same; 
 nodo07[label="F6" ,group=0]; 
-nodo37[label="255-255-255" ,group=3]; 
-nodo167[label="255-255-255" ,group=16]; 
+nodo37[label="0-0-0" ,group=3]; 
+nodo167[label="0-0-0" ,group=16]; 
 } 
 {rank=same; 
 nodo08[label="F7" ,group=0]; 
-nodo38[label="255-255-255" ,group=3]; 
-nodo88[label="255-255-255" ,group=8]; 
-nodo128[label="255-255-255" ,group=12]; 
-nodo168[label="255-255-255" ,group=16]; 
+nodo38[label="0-0-0" ,group=3]; 
+nodo88[label="0-0-0" ,group=8]; 
+nodo128[label="0-0-0" ,group=12]; 
+nodo168[label="0-0-0" ,group=16]; 
 } 
 {rank=same; 
 nodo09[label="F8" ,group=0]; 
-nodo39[label="255-255-255" ,group=3]; 
-nodo79[label="255-255-255" ,group=7]; 
-nodo89[label="255-255-255" ,group=8]; 
-nodo119[label="255-255-255" ,group=11]; 
-nodo129[label="255-255-255" ,group=12]; 
-nodo169[label="255-255-255" ,group=16]; 
+nodo39[label="0-0-0" ,group=3]; 
+nodo79[label="0-0-0" ,group=7]; 
+nodo89[label="0-0-0" ,group=8]; 
+nodo119[label="0-0-0" ,group=11]; 
+nodo129[label="0-0-0" ,group=12]; 
+nodo169[label="0-0-0" ,group=16]; 
 } 
 {rank=same; 
 nodo010[label="F9" ,group=0]; 
-nodo310[label="255-255-255" ,group=3]; 
-nodo1610[label="255-255-255" ,group=16]; 
+nodo310[label="0-0-0" ,group=3]; 
+nodo1610[label="0-0-0" ,group=16]; 
 } 
 {rank=same; 
 nodo011[label="F10" ,group=0]; 
-nodo211[label="255-255-255" ,group=2]; 
-nodo1711[label="255-255-255" ,group=17]; 
+nodo211[label="0-0-0" ,group=2]; 
+nodo1711[label="0-0-0" ,group=17]; 
 } 
 {rank=same; 
 nodo012[label="F11" ,group=0]; 
-nodo212[label="255-255-255" ,group=2]; 
-nodo1712[label="255-255-255" ,group=17]; 
+nodo212[label="0-0-0" ,group=2]; 
+nodo1712[label="0-0-0" ,group=17]; 
 } 
 {rank=same; 
 nodo013[label="F12" ,group=0]; 
-nodo213[label="255-255-255" ,group=2]; 
-nodo413[label="255-255-255" ,group=4]; 
-nodo1513[label="255-255-255" ,group=15]; 
-nodo1713[label="255-255-255" ,group=17]; 
+nodo213[label="0-0-0" ,group=2]; 
+nodo413[label="0-0-0" ,group=4]; 
+nodo1513[label="0-0-0" ,group=15]; 
+nodo1713[label="0-0-0" ,group=17]; 
 } 
 {rank=same; 
 nodo014[label="F13" ,group=0]; 
-nodo314[label="255-255-255" ,group=3]; 
-nodo414[label="255-255-255" ,group=4]; 
-nodo1514[label="255-255-255" ,group=15]; 
-nodo1614[label="255-255-255" ,group=16]; 
+nodo314[label="0-0-0" ,group=3]; 
+nodo414[label="0-0-0" ,group=4]; 
+nodo1514[label="0-0-0" ,group=15]; 
+nodo1614[label="0-0-0" ,group=16]; 
 } 
 {rank=same; 
 nodo015[label="F14" ,group=0]; 
-nodo415[label="255-255-255" ,group=4]; 
-nodo1515[label="255-255-255" ,group=15]; 
+nodo415[label="0-0-0" ,group=4]; 
+nodo1515[label="0-0-0" ,group=15]; 
 } 
 {rank=same; 
 nodo016[label="F15" ,group=0]; 
-nodo416[label="255-255-255" ,group=4]; 
-nodo816[label="255-255-255" ,group=8]; 
-nodo916[label="255-255-255" ,group=9]; 
-nodo1016[label="255-255-255" ,group=10]; 
-nodo1116[label="255-255-255" ,group=11]; 
-nodo1516[label="255-255-255" ,group=15]; 
+nodo416[label="0-0-0" ,group=4]; 
+nodo816[label="0-0-0" ,group=8]; 
+nodo916[label="0-0-0" ,group=9]; 
+nodo1016[label="0-0-0" ,group=10]; 
+nodo1116[label="0-0-0" ,group=11]; 
+nodo1516[label="0-0-0" ,group=15]; 
 } 
 {rank=same; 
 nodo017[label="F16" ,group=0]; 
-nodo517[label="255-255-255" ,group=5]; 
-nodo617[label="255-255-255" ,group=6]; 
-nodo717[label="255-255-255" ,group=7]; 
-nodo1217[label="255-255-255" ,group=12]; 
-nodo1317[label="255-255-255" ,group=13]; 
-nodo1417[label="255-255-255" ,group=14]; 
+nodo517[label="0-0-0" ,group=5]; 
+nodo617[label="0-0-0" ,group=6]; 
+nodo717[label="0-0-0" ,group=7]; 
+nodo1217[label="0-0-0" ,group=12]; 
+nodo1317[label="0-0-0" ,group=13]; 
+nodo1417[label="0-0-0" ,group=14]; 
 } 
 nodo00 -> nodo20 [dir=both];
 nodo20 -> nodo30 [dir=both];

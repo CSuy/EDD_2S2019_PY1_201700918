@@ -438,6 +438,7 @@ Nodo* Arbol_Binario::Buscar(std::string nombre_imagen, int filtros)
         Nodo *filtro;
         Nodo *raiz_p;
         int x=1, y=0;
+        int xx = 0, yy=0;
         if(filtros==1){
             while(aux3!=0){
                 raiz_p=copia->crear_raiz(aux3->Color);
@@ -561,6 +562,55 @@ Nodo* Arbol_Binario::Buscar(std::string nombre_imagen, int filtros)
                 aux3=aux3->adelante;
                 y=0;
                 x=1;
+            }
+            filtro=copia->cabeza;
+        }else if(filtros==3){
+            while(aux3!=0){
+                raiz_p=copia->crear_raiz(aux3->Color);
+                aux=aux3->abajo;
+                while(aux!=0){
+                    aux1=aux->siguiente;
+                    while(aux1!=0){
+                        xx = Raiz->ancho_imagen - 1 - aux1->posX;
+                        copia->insertar_elemento(xx,aux1->posY,aux1->Color,raiz_p);
+                        aux1=aux1->siguiente;
+                    }
+                    aux=aux->abajo;
+                }
+                aux3=aux3->adelante;
+            }
+            filtro=copia->cabeza;
+        }else if(filtros==4){
+            while(aux3!=0){
+                raiz_p=copia->crear_raiz(aux3->Color);
+                aux=aux3->abajo;
+                while(aux!=0){
+                    aux1=aux->siguiente;
+                    while(aux1!=0){
+                        yy = Raiz->alto_imagen - 1 - aux1->posY;
+                        copia->insertar_elemento(aux1->posX,yy,aux1->Color,raiz_p);
+                        aux1=aux1->siguiente;
+                    }
+                    aux=aux->abajo;
+                }
+                aux3=aux3->adelante;
+            }
+            filtro=copia->cabeza;
+        }else if(filtros==5){
+            while(aux3!=0){
+                raiz_p=copia->crear_raiz(aux3->Color);
+                aux=aux3->abajo;
+                while(aux!=0){
+                    aux1=aux->siguiente;
+                    while(aux1!=0){
+                        xx = Raiz->ancho_imagen -1 - aux1->posX;
+                        yy = Raiz->alto_imagen - 1 - aux1->posY;
+                        copia->insertar_elemento(xx,yy,aux1->Color,raiz_p);
+                        aux1=aux1->siguiente;
+                    }
+                    aux=aux->abajo;
+                }
+                aux3=aux3->adelante;
             }
             filtro=copia->cabeza;
         }

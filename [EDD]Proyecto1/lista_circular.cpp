@@ -19,7 +19,7 @@ void  Lista_Circular::insertar(std::string capa, std::string filtro){
         this->cabeza=nuevo;
         this->tam++;
     }else{
-        Nodo_Circular *&aux=this->cabeza;
+        Nodo_Circular *aux=this->cabeza;
         while (aux->siguiente!=0)
         {
             aux=aux->siguiente;
@@ -91,8 +91,10 @@ void Lista_Circular::graficar(){
 
 void Lista_Circular::mostrar(){
     Nodo_Circular *aux=this->cabeza;
-    for(int k=0; k<this->tam;k++){
+    int k=0;
+    while(aux!=0){
         cout << k+1 << "." <<  aux->filtro << endl;
+        k++;
         aux=aux->siguiente;
     }
 }
